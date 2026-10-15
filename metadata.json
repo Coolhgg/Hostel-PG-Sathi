@@ -1,0 +1,6 @@
+{
+  "name": "Hostel & PG Sathi - Smart PG & Hostel Manager",
+  "description": "Universal mobile management app for Indian PGs, student hostels, co-living spaces, and guest houses. Multi-property support, floor-by-floor bed vacancy tracking, resident payment histories, and WhatsApp reminders.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
