@@ -1179,7 +1179,7 @@
         -webkit-backdrop-filter: blur(12px);
         border-top: 1px solid var(--color-border);
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(6, 1fr);
         align-items: center;
         z-index: 45;
         padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -1205,9 +1205,9 @@
       }
 
       .nav-tab-icon {
-        width: 22px;
-        height: 22px;
-        margin-bottom: 3px;
+        width: 20px;
+        height: 20px;
+        margin-bottom: 2px;
         transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
       }
       .nav-tab-item.active .nav-tab-icon {
@@ -1215,7 +1215,7 @@
       }
 
       .nav-tab-label {
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 600;
         letter-spacing: -0.1px;
       }
@@ -1855,6 +1855,74 @@
         justify-content: space-between;
         gap: 8px;
       }
+
+      /* Monthly Property Expenses Styles */
+      .expense-card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        padding: 14px;
+        box-shadow: var(--shadow-card);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: transform 0.15s ease, border-color 0.15s ease;
+      }
+      .expense-card:hover {
+        border-color: #cbd5e1;
+      }
+      .expense-card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .expense-cat-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 6px;
+        background: #f1f5f9;
+        color: #334155;
+      }
+      .expense-category-icon-box {
+        width: 38px;
+        height: 38px;
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+        background: #f1f5f9;
+      }
+      .expense-amount-tag {
+        font-size: 16px;
+        font-weight: 800;
+        color: #dc2626;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.3px;
+        white-space: nowrap;
+      }
+      .expense-chip-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 4px 10px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: #ffffff;
+        font-size: 11px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .expense-chip-pill strong {
+        color: #fef08a;
+      }
     </style>
   </head>
   <body>
@@ -2012,20 +2080,38 @@
               </div>
             </div>
 
-            <!-- FEATURE 5: REVENUE FORECAST DASHBOARD CARD -->
+            <!-- FEATURE 5: REVENUE & PROFIT FORECAST DASHBOARD CARD -->
             <div class="revenue-forecast-box">
               <div class="forecast-header-row">
                 <div>
                   <div style="font-size:11px; text-transform:uppercase; color:#c7d2fe; font-weight:800; letter-spacing:0.5px;">Financial Projection · Oct 2026</div>
-                  <h2 style="font-size:16px; font-weight:800; margin:2px 0 0; color:#ffffff;">Monthly Revenue Forecast</h2>
+                  <h2 style="font-size:16px; font-weight:800; margin:2px 0 0; color:#ffffff;">Monthly Revenue & Profit Forecast</h2>
                 </div>
-                <span class="chart-building-badge" id="forecastScopeBadge" style="background:rgba(255,255,255,0.2); color:#ffffff;">All Properties</span>
+                <div style="display:flex; align-items:center; gap:6px;">
+                  <button type="button" class="btn-secondary-action" id="dashLogExpenseBtn" style="background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.3); color:#ffffff; font-size:11px; padding:4px 9px; height:28px; font-weight:700; border-radius:var(--radius-sm);" title="Record property expense">+ Expense</button>
+                  <span class="chart-building-badge" id="forecastScopeBadge" style="background:rgba(255,255,255,0.2); color:#ffffff;">All Properties</span>
+                </div>
               </div>
-              <div>
-                <div style="font-size:11px; color:#c7d2fe; margin-bottom:2px;">Expected Active Monthly Rent & Dues</div>
-                <div class="forecast-main-val" id="forecastExpectedVal">₹45,500</div>
+
+              <!-- Top Row: Expected Revenue vs Projected Net Profit -->
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+                <div>
+                  <div style="font-size:11px; color:#c7d2fe; margin-bottom:2px;">Expected Monthly Revenue</div>
+                  <div class="forecast-main-val" id="forecastExpectedVal">₹45,500</div>
+                  <div style="font-size:10px; color:#a5b4fc; margin-top:1px;">Active Rent + Utility Dues</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.12); padding:8px 10px; border-radius:var(--radius-sm); border:1px solid rgba(255,255,255,0.18);">
+                  <div style="font-size:11px; color:#c7d2fe; display:flex; justify-content:space-between; align-items:center;">
+                    <span>Projected Net Profit</span>
+                    <span id="forecastProfitMarginBadge" style="font-size:10px; font-weight:800; padding:1px 6px; border-radius:8px; background:rgba(16,185,129,0.3); color:#6ee7b7;">34% Margin</span>
+                  </div>
+                  <div class="forecast-main-val" id="forecastNetProfitVal" style="font-size:22px; color:#86efac; margin-top:3px;">₹15,500</div>
+                  <div style="font-size:10px; color:#c7d2fe; margin-top:1px;">Revenue minus Expenses</div>
+                </div>
               </div>
-              <div class="forecast-breakdown-grid">
+
+              <!-- 4-Column Financial Breakdown: Collected, Pending, Monthly Expenses, Full Capacity -->
+              <div class="forecast-breakdown-grid" style="grid-template-columns: repeat(4, 1fr); margin:0 0 10px;">
                 <div class="forecast-sub-item">
                   <span class="forecast-sub-label">Collected</span>
                   <span class="forecast-sub-val" id="forecastCollectedVal" style="color:#6ee7b7;">₹24,500</span>
@@ -2035,17 +2121,56 @@
                   <span class="forecast-sub-val" id="forecastPendingVal" style="color:#fcd34d;">₹21,000</span>
                 </div>
                 <div class="forecast-sub-item">
-                  <span class="forecast-sub-label">Full Capacity</span>
+                  <span class="forecast-sub-label">Expenses</span>
+                  <span class="forecast-sub-val" id="forecastExpensesVal" style="color:#fca5a5;">₹30,000</span>
+                </div>
+                <div class="forecast-sub-item">
+                  <span class="forecast-sub-label">Capacity</span>
                   <span class="forecast-sub-val" id="forecastPotentialVal" style="color:#e0e7ff;">₹62,000</span>
                 </div>
               </div>
+
+              <!-- Progress bar & Cashflow explanation -->
               <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#c7d2fe; margin-top:6px;">
                 <span id="forecastRealizedPercent">54% Collected · 46% Pending</span>
-                <span id="forecastOccupancyPotentialText">Capacity Yield: 73%</span>
+                <span id="forecastCashflowRealizedText" style="color:#fed7aa; font-weight:700;">Realized Cashflow: -₹5,500</span>
               </div>
               <div class="forecast-progress-track">
                 <div class="forecast-bar-collected" id="forecastBarCollected" style="width: 54%;"></div>
                 <div class="forecast-bar-pending" id="forecastBarPending" style="width: 46%;"></div>
+              </div>
+
+              <!-- Categorized Expenses Mini Breakdown Strip -->
+              <div style="margin-top:12px; padding-top:10px; border-top:1px dashed rgba(255,255,255,0.2);">
+                <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#c7d2fe; margin-bottom:6px;">
+                  <span style="font-weight:700;">Monthly Outflows by Category:</span>
+                  <button type="button" id="dashViewAllExpensesBtn" style="background:transparent; border:none; color:#c7d2fe; text-decoration:underline; font-size:11px; cursor:pointer; font-weight:600;">View All Expenses →</button>
+                </div>
+                <div id="forecastCategoryChipsRow" style="display:flex; flex-wrap:wrap; gap:6px;">
+                  <!-- Dynamic category chips with amounts -->
+                </div>
+              </div>
+            </div>
+
+            <!-- MONTHLY PROPERTY EXPENSES DASHBOARD SUMMARY CARD -->
+            <div style="background:#ffffff; border:1px solid var(--color-border); border-radius:var(--radius-md); padding:14px; margin-bottom:18px; box-shadow:var(--shadow-card);">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <div>
+                  <div class="section-kicker">Operating Expenses</div>
+                  <h3 class="section-heading-title" style="margin-bottom:0; font-size:15px;">Logged Monthly Expenses</h3>
+                </div>
+                <div style="display:flex; align-items:center; gap:6px;">
+                  <button type="button" class="btn-secondary-action" id="dashOpenExpenseModalBtn" style="color:var(--color-brand); font-weight:700; border-color:var(--color-brand); padding:5px 9px; font-size:11px; height:28px;">
+                    + Log Expense
+                  </button>
+                  <button type="button" class="btn-secondary-action" id="dashGoToExpensesTabBtn" style="padding:5px 9px; font-size:11px; height:28px;">
+                    All Outflows →
+                  </button>
+                </div>
+              </div>
+
+              <div id="dashRecentExpensesList" style="display:flex; flex-direction:column; gap:8px;">
+                <!-- Populated with recent expenses -->
               </div>
             </div>
 
@@ -2314,9 +2439,18 @@
               </div>
               <div class="form-group">
                 <label class="form-label" for="settingUpiId">UPI ID for Direct Fee Collection (GPay / PhonePe / Paytm):</label>
-                <input type="text" class="form-input" id="settingUpiId" placeholder="e.g. hostel@okhdfcbank" />
+                <input type="text" class="form-input" id="settingUpiId" placeholder="e.g. sureshreddy@okhdfcbank" />
               </div>
-              <button class="sheet-btn primary" id="savePropertyProfileBtn" style="margin-top:10px;">Save Profile Changes</button>
+
+              <!-- PG Reception UPI QR Card -->
+              <div style="background:var(--color-surface-muted); border:1px solid var(--color-border); border-radius:var(--radius-sm); padding:12px; margin-top:10px; text-align:center;">
+                <div style="font-size:12px; font-weight:800; color:var(--color-text-primary);">📍 PG Reception QR Code</div>
+                <div style="font-size:11px; color:var(--color-text-secondary); margin-top:2px;">Display or show this QR code at your reception desk for walk-in rent payments.</div>
+                <canvas id="settingsUpiQrCanvas" style="display:inline-block; border:1px solid #cbd5e1; border-radius:8px; padding:6px; background:#fff; margin-top:8px; max-width:160px; max-height:160px;"></canvas>
+                <div style="font-size:11px; font-weight:700; color:var(--color-brand); margin-top:4px;" id="settingsUpiDisplayVal">sureshreddy@okhdfcbank</div>
+              </div>
+
+              <button class="sheet-btn primary" id="savePropertyProfileBtn" style="margin-top:12px;">Save Profile Changes</button>
             </div>
 
             <!-- Phone App Installation Card -->
@@ -2350,6 +2484,63 @@
                   🔄 Reset to Sample Hostel & PG Data
                 </button>
               </div>
+            </div>
+          </section>
+
+          <!-- TAB: PROPERTY EXPENSES & OUTFLOWS -->
+          <section class="view-container" id="tab-expenses">
+            <div class="section-heading-row">
+              <div>
+                <div class="section-kicker">Operating Costs</div>
+                <h2 class="section-heading-title">Monthly Property Expenses</h2>
+              </div>
+              <button class="header-btn primary" id="openAddExpenseModalBtn">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <span>+ Log Expense</span>
+              </button>
+            </div>
+
+            <!-- Expense Summary KPI Cards -->
+            <div class="kpi-grid" style="margin-bottom:14px;">
+              <div class="kpi-card">
+                <div class="kpi-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  <span>Total Expenses</span>
+                </div>
+                <div class="kpi-value" id="kpiTotalExpenses" style="color:#dc2626;">₹30,000</div>
+                <div class="kpi-subtext" id="kpiExpensesMonthSub">October 2026</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">
+                  <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#4f46e5;"></span>
+                  <span>Top Outflow</span>
+                </div>
+                <div class="kpi-value" id="kpiTopExpenseCat" style="font-size:16px;">Staff Salary</div>
+                <div class="kpi-subtext" id="kpiTopExpenseAmt">₹14,000 (47%)</div>
+              </div>
+            </div>
+
+            <!-- Expense Search & Filter Bar -->
+            <div class="tenant-search-box">
+              <input type="text" class="tenant-search-input" id="expenseSearchInput" placeholder="Search expenses by title, category, vendor..." />
+              <svg class="search-icon-fixed" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <button class="search-clear-btn" id="clearExpenseSearchBtn" title="Clear search">✕</button>
+            </div>
+
+            <!-- Category Filter Bar -->
+            <div class="segmented-filter-bar" id="expenseCategoryFilterBar" style="margin-bottom:14px;">
+              <button class="segmented-tab active" data-expense-filter="all">All <span class="count-pill" id="countAllExpenses">0</span></button>
+              <button class="segmented-tab" data-expense-filter="Staff Salary">👨‍🍳 Staff <span class="count-pill" id="countStaffExpenses">0</span></button>
+              <button class="segmented-tab" data-expense-filter="Electricity Bill">⚡ Power <span class="count-pill" id="countElectricityExpenses">0</span></button>
+              <button class="segmented-tab" data-expense-filter="Water & Tanker">💧 Water <span class="count-pill" id="countWaterExpenses">0</span></button>
+              <button class="segmented-tab" data-expense-filter="Repairs & Maintenance">🛠️ Repairs <span class="count-pill" id="countRepairsExpenses">0</span></button>
+              <button class="segmented-tab" data-expense-filter="WiFi & Internet">📶 WiFi <span class="count-pill" id="countWifiExpenses">0</span></button>
+              <button class="segmented-tab" data-expense-filter="Other">📦 Other <span class="count-pill" id="countOtherExpenses">0</span></button>
+            </div>
+
+            <!-- Expense Cards List -->
+            <div class="expenses-list" id="expensesListContainer" style="display:flex; flex-direction:column; gap:10px;">
+              <!-- Dynamically populated expense cards -->
             </div>
           </section>
 
@@ -2420,6 +2611,14 @@
               <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
             <span class="nav-tab-label">Residents</span>
+          </button>
+
+          <button class="nav-tab-item" data-tab="tab-expenses">
+            <svg class="nav-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20"></path>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            <span class="nav-tab-label">Expenses</span>
           </button>
 
           <button class="nav-tab-item" data-tab="tab-complaints">
@@ -2538,9 +2737,30 @@
             </div>
             <div class="sheet-body">
               <div style="background:var(--color-surface-muted); padding:12px; border-radius:var(--radius-sm); margin-bottom:14px;">
-                <div style="font-size:15px; font-weight:700;" id="payModalTenantName">Resident Name</div>
-                <div style="font-size:12px; color:var(--color-text-secondary); margin-top:2px;" id="payModalRoomMeta">Main Building · Room 101 · Bed A</div>
-                <div style="font-size:13px; font-weight:700; color:var(--color-brand); margin-top:6px;" id="payModalDueText">Outstanding Due: ₹7,500</div>
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
+                  <div>
+                    <div style="font-size:15px; font-weight:700;" id="payModalTenantName">Resident Name</div>
+                    <div style="font-size:12px; color:var(--color-text-secondary); margin-top:2px;" id="payModalRoomMeta">Main Building · Room 101 · Bed A</div>
+                    <div style="font-size:13px; font-weight:700; color:var(--color-brand); margin-top:6px;" id="payModalDueText">Outstanding Due: ₹7,500</div>
+                  </div>
+                  <button type="button" class="btn-secondary-action" id="togglePayUpiQrBtn" style="font-size:11px; font-weight:700; color:var(--color-brand); border-color:var(--color-brand); height:32px; padding:0 10px; white-space:nowrap;">
+                    📱 UPI QR
+                  </button>
+                </div>
+
+                <!-- Interactive UPI QR Code Box -->
+                <div id="payModalQrContainer" style="display:none; text-align:center; margin-top:10px; padding:12px; background:#ffffff; border:1px solid var(--color-border); border-radius:var(--radius-sm);">
+                  <div style="font-size:12px; font-weight:700; color:#1e293b;">
+                    Resident Can Scan with GPay / PhonePe / Paytm / BHIM
+                  </div>
+                  <canvas id="payModalQrCanvas" style="display:inline-block; border:1px solid #e2e8f0; border-radius:8px; padding:6px; background:#fff; margin-top:8px; max-width:180px; max-height:180px;"></canvas>
+                  <div style="font-size:11px; color:var(--color-text-secondary); margin-top:6px;">
+                    UPI ID: <strong id="payModalUpiIdText">sureshreddy@okhdfcbank</strong>
+                  </div>
+                  <button type="button" class="btn-secondary-action" id="copyPayUpiIdBtn" style="margin:6px auto 0; font-size:11px; height:26px; padding:0 8px;">
+                    📋 Copy UPI ID
+                  </button>
+                </div>
               </div>
 
               <form id="recordPaymentForm">
@@ -2922,6 +3142,83 @@
             </div>
             <div class="sheet-footer">
               <button type="button" class="sheet-btn secondary" id="dismissVacantAlertBtn">Dismiss</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODAL 11: LOG PROPERTY EXPENSE -->
+        <div class="modal-backdrop" id="addExpenseModal">
+          <div class="bottom-sheet" style="max-height:92%;">
+            <div class="sheet-drag-handle"></div>
+            <div class="sheet-header">
+              <h3 class="sheet-title">Log Property Expense</h3>
+              <button class="sheet-close-btn" id="closeAddExpenseModalBtn">✕</button>
+            </div>
+            <div class="sheet-body">
+              <form id="addExpenseForm">
+                <div class="form-group">
+                  <label class="form-label" for="expBuildingSelect">Property / Branch *</label>
+                  <select class="form-select" id="expBuildingSelect" required>
+                    <!-- Dynamically populated -->
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="expCategorySelect">Expense Category *</label>
+                  <select class="form-select" id="expCategorySelect" required>
+                    <option value="Staff Salary" selected>👨‍🍳 Staff Salary (Cook, Warden, Cleaning, Guard)</option>
+                    <option value="Electricity Bill">⚡ Commercial Electricity Bill</option>
+                    <option value="Water & Tanker">💧 Water Supply & Tankers</option>
+                    <option value="Repairs & Maintenance">🛠️ Repairs, Plumbing & Maintenance</option>
+                    <option value="WiFi & Internet">📶 Commercial WiFi & Internet</option>
+                    <option value="Groceries & Kitchen">🛒 Groceries, Kitchen & Ration</option>
+                    <option value="Cleaning & Supplies">🧹 Housekeeping, Garbage & Supplies</option>
+                    <option value="Property Rent & Taxes">🏢 Property Lease, Rent & Local Taxes</option>
+                    <option value="Other">📦 Other Miscellaneous Expense</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="expTitleInput">Expense Description / Title *</label>
+                  <input type="text" class="form-input" id="expTitleInput" placeholder="e.g. Cook & Security Guard Salary for Oct" required />
+                </div>
+
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                  <div class="form-group">
+                    <label class="form-label" for="expAmountInput">Amount (₹) *</label>
+                    <input type="number" class="form-input" id="expAmountInput" placeholder="e.g. 14000" min="1" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="expDateInput">Expense Date *</label>
+                    <input type="date" class="form-input" id="expDateInput" required />
+                  </div>
+                </div>
+
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                  <div class="form-group">
+                    <label class="form-label" for="expModeSelect">Payment Mode *</label>
+                    <select class="form-select" id="expModeSelect">
+                      <option value="UPI" selected>UPI (GPay / PhonePe / Paytm)</option>
+                      <option value="Bank Transfer">Bank Transfer (IMPS / NEFT)</option>
+                      <option value="Cash">Cash Handover</option>
+                      <option value="Cheque">Cheque</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="expPaidToInput">Paid To / Payee Name</label>
+                    <input type="text" class="form-input" id="expPaidToInput" placeholder="e.g. Ramesh Cook, BSES Power" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="expReceiptRefInput">Bill / Receipt / Txn Reference (Optional)</label>
+                  <input type="text" class="form-input" id="expReceiptRefInput" placeholder="e.g. Bill #49281, UPI/91823712" />
+                </div>
+              </form>
+            </div>
+            <div class="sheet-footer">
+              <button type="button" class="sheet-btn secondary" id="cancelAddExpenseBtn">Cancel</button>
+              <button type="button" class="sheet-btn primary" id="submitAddExpenseBtn">Save & Log Expense</button>
             </div>
           </div>
         </div>
@@ -3762,6 +4059,68 @@ self.addEventListener('fetch', (event) => {
                 status: "Waiting",
                 notes: "Looking for single occupancy room urgently"
               }
+            ],
+            expenses: [
+              {
+                id: "exp-1",
+                buildingId: "bldg-1",
+                category: "Staff Salary",
+                title: "Cook, Warden & Night Guard Monthly Salary",
+                amount: 14000,
+                date: "2026-10-05",
+                month: "2026-10",
+                paymentMode: "Bank Transfer",
+                paidTo: "Ramesh Sharma & Security Agency",
+                receiptRef: "IMPS/91823741"
+              },
+              {
+                id: "exp-2",
+                buildingId: "bldg-1",
+                category: "Electricity Bill",
+                title: "Main PG Wing Commercial Power Bill",
+                amount: 8400,
+                date: "2026-10-08",
+                month: "2026-10",
+                paymentMode: "UPI",
+                paidTo: "State Electricity Board (BSES)",
+                receiptRef: "CA-90281928"
+              },
+              {
+                id: "exp-3",
+                buildingId: "bldg-1",
+                category: "Water & Tanker",
+                title: "Potable Clean Water Tanker Refill (3x Tankers)",
+                amount: 3600,
+                date: "2026-10-10",
+                month: "2026-10",
+                paymentMode: "UPI",
+                paidTo: "Ganga Jal Water Supply",
+                receiptRef: "UPI/392019"
+              },
+              {
+                id: "exp-4",
+                buildingId: "bldg-1",
+                category: "Repairs & Maintenance",
+                title: "Plumbing pipes, tap washers & geyser switch replacement",
+                amount: 2200,
+                date: "2026-10-11",
+                month: "2026-10",
+                paymentMode: "Cash",
+                paidTo: "Mahesh Plumber & Hardware",
+                receiptRef: "Bill #104"
+              },
+              {
+                id: "exp-5",
+                buildingId: "bldg-1",
+                category: "WiFi & Internet",
+                title: "Commercial High-Speed Dual-Band Fiber Lease",
+                amount: 1800,
+                date: "2026-10-02",
+                month: "2026-10",
+                paymentMode: "UPI",
+                paidTo: "Airtel Xstream Broadband",
+                receiptRef: "INV-94819"
+              }
             ]
           };
         }
@@ -3772,11 +4131,25 @@ self.addEventListener('fetch', (event) => {
         let currentFloorFilter = 'all';
         let currentTenantFilter = 'all';
         let currentComplaintFilter = 'all'; // 'all', 'Pending', 'In Progress', 'Fixed'
+        let currentExpenseCategoryFilter = 'all';
+        let expenseSearchQuery = '';
         let tenantSearchQuery = '';
         let deferredPwaPrompt = null;
 
         const TODAY = new Date(2026, 9, 15);
         const CURRENT_YEAR_MONTH = '2026-10';
+
+        const EXPENSE_CATEGORY_ICONS = {
+          'Staff Salary': '👨‍🍳',
+          'Electricity Bill': '⚡',
+          'Water & Tanker': '💧',
+          'Repairs & Maintenance': '🛠️',
+          'WiFi & Internet': '📶',
+          'Groceries & Kitchen': '🛒',
+          'Cleaning & Supplies': '🧹',
+          'Property Rent & Taxes': '🏢',
+          'Other': '📦'
+        };
 
         function loadData() {
           try {
@@ -3806,6 +4179,10 @@ self.addEventListener('fetch', (event) => {
           }
           if (!appData.waitlist || !Array.isArray(appData.waitlist)) {
             appData.waitlist = getDefaultDemoData().waitlist;
+            modified = true;
+          }
+          if (!appData.expenses || !Array.isArray(appData.expenses)) {
+            appData.expenses = getDefaultDemoData().expenses;
             modified = true;
           }
           if (appData.tenants && Array.isArray(appData.tenants)) {
@@ -3991,6 +4368,7 @@ self.addEventListener('fetch', (event) => {
           renderDashboard();
           renderRoomsTab();
           renderTenantsTab();
+          renderExpensesTab();
           renderComplaintsTab();
           renderSettingsTab();
         }
@@ -4113,7 +4491,7 @@ self.addEventListener('fetch', (event) => {
           if (kpiCollectedRent) kpiCollectedRent.textContent = formatCurrency(totalCollectedRent);
           if (kpiCollectedSub) kpiCollectedSub.textContent = `${paidTenantCount} resident${paidTenantCount === 1 ? '' : 's'} paid`;
 
-          // FEATURE 5: Revenue Forecast calculations
+          // FEATURE 5: Revenue & Profit Forecast calculations (with Property Expenses)
           let totalExpectedMonthlyRevenue = 0;
           let fullCapacityPotential = 0;
 
@@ -4132,6 +4510,21 @@ self.addEventListener('fetch', (event) => {
             totalExpectedMonthlyRevenue += (Number(tenant.rentAmount || 0) + Number(tenant.electricityDues || 0));
           });
 
+          // Calculate Monthly Property Expenses
+          const activeExpenses = (appData.expenses || []).filter(exp => {
+            const expMonth = exp.month || (exp.date ? exp.date.slice(0, 7) : CURRENT_YEAR_MONTH);
+            if (expMonth !== CURRENT_YEAR_MONTH) return false;
+            if (currentBuildingFilter === 'all') return true;
+            return !exp.buildingId || exp.buildingId === 'all' || exp.buildingId === currentBuildingFilter;
+          });
+
+          const totalMonthlyExpenses = activeExpenses.reduce((sum, e) => sum + Number(e.amount || 0), 0);
+          const projectedNetProfit = totalExpectedMonthlyRevenue - totalMonthlyExpenses;
+          const netProfitMargin = totalExpectedMonthlyRevenue > 0
+            ? Math.round((projectedNetProfit / totalExpectedMonthlyRevenue) * 100)
+            : 0;
+          const realizedCashflow = totalCollectedRent - totalMonthlyExpenses;
+
           const projectedPending = Math.max(0, totalExpectedMonthlyRevenue - totalCollectedRent);
           const collectedPct = totalExpectedMonthlyRevenue > 0
             ? Math.min(100, Math.round((totalCollectedRent / totalExpectedMonthlyRevenue) * 100))
@@ -4144,16 +4537,30 @@ self.addEventListener('fetch', (event) => {
           const fExpected = document.getElementById('forecastExpectedVal');
           const fCollected = document.getElementById('forecastCollectedVal');
           const fPending = document.getElementById('forecastPendingVal');
+          const fExpenses = document.getElementById('forecastExpensesVal');
+          const fNetProfit = document.getElementById('forecastNetProfitVal');
+          const fProfitBadge = document.getElementById('forecastProfitMarginBadge');
           const fPotential = document.getElementById('forecastPotentialVal');
           const fScope = document.getElementById('forecastScopeBadge');
           const fRealized = document.getElementById('forecastRealizedPercent');
-          const fYield = document.getElementById('forecastOccupancyPotentialText');
+          const fCashflow = document.getElementById('forecastCashflowRealizedText');
           const fBarColl = document.getElementById('forecastBarCollected');
           const fBarPend = document.getElementById('forecastBarPending');
+          const fChipsRow = document.getElementById('forecastCategoryChipsRow');
 
           if (fExpected) fExpected.textContent = formatCurrency(totalExpectedMonthlyRevenue);
           if (fCollected) fCollected.textContent = formatCurrency(totalCollectedRent);
           if (fPending) fPending.textContent = formatCurrency(projectedPending);
+          if (fExpenses) fExpenses.textContent = formatCurrency(totalMonthlyExpenses);
+          if (fNetProfit) {
+            fNetProfit.textContent = (projectedNetProfit >= 0 ? '+' : '-') + formatCurrency(Math.abs(projectedNetProfit));
+            fNetProfit.style.color = projectedNetProfit >= 0 ? '#86efac' : '#fca5a5';
+          }
+          if (fProfitBadge) {
+            fProfitBadge.textContent = `${netProfitMargin}% Margin`;
+            fProfitBadge.style.color = projectedNetProfit >= 0 ? '#86efac' : '#fca5a5';
+            fProfitBadge.style.background = projectedNetProfit >= 0 ? 'rgba(16,185,129,0.3)' : 'rgba(239,68,68,0.3)';
+          }
           if (fPotential) fPotential.textContent = formatCurrency(fullCapacityPotential);
           if (fScope) {
             fScope.textContent = currentBuildingFilter === 'all'
@@ -4161,9 +4568,66 @@ self.addEventListener('fetch', (event) => {
               : (getBuilding(currentBuildingFilter)?.name || 'Property');
           }
           if (fRealized) fRealized.textContent = `${collectedPct}% Collected · ${pendingPct}% Pending`;
-          if (fYield) fYield.textContent = `Capacity Yield: ${capYield}%`;
+          if (fCashflow) {
+            fCashflow.textContent = `Realized Cashflow: ${(realizedCashflow >= 0 ? '+' : '-') + formatCurrency(Math.abs(realizedCashflow))}`;
+            fCashflow.style.color = realizedCashflow >= 0 ? '#86efac' : '#fca5a5';
+          }
           if (fBarColl) fBarColl.style.width = `${collectedPct}%`;
           if (fBarPend) fBarPend.style.width = `${pendingPct}%`;
+
+          // Category Chips inside Revenue Forecast Card
+          if (fChipsRow) {
+            const catTotals = {};
+            activeExpenses.forEach(exp => {
+              const cat = exp.category || 'Other';
+              catTotals[cat] = (catTotals[cat] || 0) + Number(exp.amount || 0);
+            });
+
+            const catEntries = Object.entries(catTotals).sort((a, b) => b[1] - a[1]);
+            if (catEntries.length === 0) {
+              fChipsRow.innerHTML = `<span style="font-size:11px; color:#c7d2fe; opacity:0.8;">No expenses recorded yet for ${CURRENT_YEAR_MONTH}.</span>`;
+            } else {
+              fChipsRow.innerHTML = catEntries.map(([cat, amt]) => {
+                const icon = EXPENSE_CATEGORY_ICONS[cat] || '📦';
+                return `<span class="expense-chip-pill">${icon} ${escapeHtml(cat)}: <strong>${formatCurrency(amt)}</strong></span>`;
+              }).join('');
+            }
+          }
+
+          // Populate Dashboard Recent Expenses List Widget
+          const dashRecentExpensesList = document.getElementById('dashRecentExpensesList');
+          if (dashRecentExpensesList) {
+            const sortedRecent = [...activeExpenses].sort((a, b) => new Date(b.date || '2026-01-01') - new Date(a.date || '2026-01-01')).slice(0, 3);
+            if (sortedRecent.length === 0) {
+              dashRecentExpensesList.innerHTML = `
+                <div style="text-align:center; padding:16px 10px; color:var(--color-text-secondary); font-size:12px; border:1px dashed var(--color-border); border-radius:var(--radius-sm);">
+                  No expenses logged yet this month. Tap "+ Log Expense" to track power, water, staff, or repairs.
+                </div>
+              `;
+            } else {
+              dashRecentExpensesList.innerHTML = sortedRecent.map(exp => {
+                const icon = EXPENSE_CATEGORY_ICONS[exp.category] || '📦';
+                const bName = getBuildingName(exp.buildingId);
+                return `
+                  <div style="background:var(--color-surface-muted); border:1px solid var(--color-border); border-radius:var(--radius-sm); padding:8px 10px; display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                      <div class="expense-category-icon-box" style="width:32px; height:32px; font-size:15px; border-radius:6px;">${icon}</div>
+                      <div>
+                        <div style="font-weight:700; font-size:12px; color:var(--color-text-primary); max-width:170px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${escapeHtml(exp.title)}</div>
+                        <div style="font-size:10px; color:var(--color-text-muted);">
+                          ${exp.date ? new Date(exp.date + 'T00:00:00').toLocaleDateString('en-IN', { day:'numeric', month:'short' }) : 'Oct'} · ${escapeHtml(exp.category)} ${currentBuildingFilter === 'all' && exp.buildingId ? '· ' + escapeHtml(bName) : ''}
+                        </div>
+                      </div>
+                    </div>
+                    <div style="text-align:right;">
+                      <div class="expense-amount-tag" style="font-size:13px;">-${formatCurrency(exp.amount)}</div>
+                      <span class="payment-mode-pill" style="font-size:9px; padding:1px 5px;">${escapeHtml(exp.paymentMode || 'UPI')}</span>
+                    </div>
+                  </div>
+                `;
+              }).join('');
+            }
+          }
 
           // Waitlist count in dashboard
           const dashWaitlistSub = document.getElementById('dashWaitlistSub');
@@ -4696,6 +5160,250 @@ self.addEventListener('fetch', (event) => {
           }).join('');
         }
 
+        // --- PROPERTY EXPENSES TAB & CONTROLLERS ---
+        function renderExpensesTab() {
+          const container = document.getElementById('expensesListContainer');
+          if (!container) return;
+
+          const activeBuildings = getActiveBuildings();
+          const activeBuildingIds = new Set(activeBuildings.map(b => b.id));
+
+          let allExpenses = (appData.expenses || []).filter(e => {
+            if (currentBuildingFilter === 'all') return true;
+            return !e.buildingId || e.buildingId === 'all' || activeBuildingIds.has(e.buildingId);
+          });
+
+          // Counts for category filter tabs
+          const countAll = allExpenses.length;
+          const countStaff = allExpenses.filter(e => e.category === 'Staff Salary').length;
+          const countElec = allExpenses.filter(e => e.category === 'Electricity Bill').length;
+          const countWater = allExpenses.filter(e => e.category === 'Water & Tanker').length;
+          const countRepairs = allExpenses.filter(e => e.category === 'Repairs & Maintenance').length;
+          const countWifi = allExpenses.filter(e => e.category === 'WiFi & Internet').length;
+          const countOther = allExpenses.filter(e => !['Staff Salary', 'Electricity Bill', 'Water & Tanker', 'Repairs & Maintenance', 'WiFi & Internet'].includes(e.category)).length;
+
+          const elCountAll = document.getElementById('countAllExpenses');
+          const elCountStaff = document.getElementById('countStaffExpenses');
+          const elCountElec = document.getElementById('countElectricityExpenses');
+          const elCountWater = document.getElementById('countWaterExpenses');
+          const elCountRepairs = document.getElementById('countRepairsExpenses');
+          const elCountWifi = document.getElementById('countWifiExpenses');
+          const elCountOther = document.getElementById('countOtherExpenses');
+
+          if (elCountAll) elCountAll.textContent = countAll;
+          if (elCountStaff) elCountStaff.textContent = countStaff;
+          if (elCountElec) elCountElec.textContent = countElec;
+          if (elCountWater) elCountWater.textContent = countWater;
+          if (elCountRepairs) elCountRepairs.textContent = countRepairs;
+          if (elCountWifi) elCountWifi.textContent = countWifi;
+          if (elCountOther) elCountOther.textContent = countOther;
+
+          // KPI totals
+          const totalExpenseSum = allExpenses.reduce((sum, e) => sum + Number(e.amount || 0), 0);
+          const kpiTotalExpenses = document.getElementById('kpiTotalExpenses');
+          const kpiTopExpenseCat = document.getElementById('kpiTopExpenseCat');
+          const kpiTopExpenseAmt = document.getElementById('kpiTopExpenseAmt');
+
+          if (kpiTotalExpenses) kpiTotalExpenses.textContent = formatCurrency(totalExpenseSum);
+
+          // Find top category
+          const categoryTotals = {};
+          allExpenses.forEach(e => {
+            categoryTotals[e.category] = (categoryTotals[e.category] || 0) + Number(e.amount || 0);
+          });
+          const sortedCats = Object.entries(categoryTotals).sort((a, b) => b[1] - a[1]);
+          if (sortedCats.length > 0) {
+            const [topCat, topAmt] = sortedCats[0];
+            const pct = totalExpenseSum > 0 ? Math.round((topAmt / totalExpenseSum) * 100) : 0;
+            if (kpiTopExpenseCat) kpiTopExpenseCat.textContent = topCat;
+            if (kpiTopExpenseAmt) kpiTopExpenseAmt.textContent = `${formatCurrency(topAmt)} (${pct}%)`;
+          } else {
+            if (kpiTopExpenseCat) kpiTopExpenseCat.textContent = 'None';
+            if (kpiTopExpenseAmt) kpiTopExpenseAmt.textContent = 'No expenses';
+          }
+
+          // Filter by category
+          let filtered = allExpenses;
+          if (currentExpenseCategoryFilter !== 'all') {
+            if (currentExpenseCategoryFilter === 'Other') {
+              filtered = filtered.filter(e => !['Staff Salary', 'Electricity Bill', 'Water & Tanker', 'Repairs & Maintenance', 'WiFi & Internet'].includes(e.category));
+            } else {
+              filtered = filtered.filter(e => e.category === currentExpenseCategoryFilter);
+            }
+          }
+
+          // Filter by search query
+          if (expenseSearchQuery) {
+            const q = expenseSearchQuery.toLowerCase();
+            filtered = filtered.filter(e => 
+              (e.title && e.title.toLowerCase().includes(q)) ||
+              (e.category && e.category.toLowerCase().includes(q)) ||
+              (e.paidTo && e.paidTo.toLowerCase().includes(q)) ||
+              (e.receiptRef && e.receiptRef.toLowerCase().includes(q))
+            );
+          }
+
+          // Sort latest date first
+          filtered.sort((a, b) => new Date(b.date || '2026-01-01') - new Date(a.date || '2026-01-01'));
+
+          if (filtered.length === 0) {
+            container.innerHTML = `
+              <div class="empty-alert-state">
+                <div style="font-size:28px; margin-bottom:6px;">🧾</div>
+                <div style="font-weight:700; color:var(--color-text-primary);">No Expenses Found</div>
+                <div style="font-size:12px; color:var(--color-text-secondary); margin-top:2px;">
+                  ${expenseSearchQuery ? `No expenses match "${escapeHtml(expenseSearchQuery)}".` : 'Log utility bills, staff payroll, repairs or ration to track monthly outflows.'}
+                </div>
+                <button type="button" class="btn-secondary-action" id="openAddExpenseEmptyBtn" style="margin:12px auto 0; font-weight:700; color:var(--color-brand); border-color:var(--color-brand);">
+                  + Log Property Expense
+                </button>
+              </div>
+            `;
+            document.getElementById('openAddExpenseEmptyBtn')?.addEventListener('click', () => openAddExpenseModal());
+            return;
+          }
+
+          container.innerHTML = filtered.map(exp => {
+            const icon = EXPENSE_CATEGORY_ICONS[exp.category] || '📦';
+            const bldgName = exp.buildingId === 'all' || !exp.buildingId ? 'All Properties' : getBuildingName(exp.buildingId);
+            const dateFormatted = exp.date 
+              ? new Date(exp.date + 'T00:00:00').toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' }) 
+              : 'Recent';
+
+            const shareMsg = `*Property Expense Log* - ${appData.config.pgName || 'Hostel & PG Sathi'}\nItem: ${exp.title}\nCategory: ${exp.category}\nAmount: ₹${Number(exp.amount || 0).toLocaleString('en-IN')}\nDate: ${dateFormatted}\nPayment Mode: ${exp.paymentMode || 'UPI'}${exp.paidTo ? '\nPaid to: ' + exp.paidTo : ''}${exp.receiptRef ? '\nRef: ' + exp.receiptRef : ''}\nProperty: ${bldgName}`;
+            const waShareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareMsg)}`;
+
+            return `
+              <div class="expense-card" data-expense-id="${exp.id}">
+                <div class="expense-card-top">
+                  <div style="display:flex; align-items:flex-start; gap:10px;">
+                    <div class="expense-category-icon-box">${icon}</div>
+                    <div>
+                      <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+                        <h4 style="font-size:14px; font-weight:800; color:var(--color-text-primary); margin:0;">${escapeHtml(exp.title)}</h4>
+                        <span class="expense-cat-badge">${escapeHtml(exp.category)}</span>
+                      </div>
+                      <div style="font-size:11px; color:var(--color-text-muted); margin-top:2px;">
+                        ${escapeHtml(bldgName)} · ${dateFormatted}
+                      </div>
+                      ${(exp.paidTo || exp.receiptRef) ? `
+                        <div style="font-size:11px; color:var(--color-text-secondary); margin-top:2px;">
+                          ${exp.paidTo ? `Paid to: <strong>${escapeHtml(exp.paidTo)}</strong>` : ''}
+                          ${exp.paidTo && exp.receiptRef ? ' · ' : ''}
+                          ${exp.receiptRef ? `Ref: <strong>${escapeHtml(exp.receiptRef)}</strong>` : ''}
+                        </div>
+                      ` : ''}
+                    </div>
+                  </div>
+                  <div style="text-align:right;">
+                    <div class="expense-amount-tag">-${formatCurrency(exp.amount)}</div>
+                    <span class="payment-mode-pill" style="margin-top:2px; display:inline-block;">${escapeHtml(exp.paymentMode || 'UPI')}</span>
+                  </div>
+                </div>
+
+                <div style="display:flex; align-items:center; justify-content:space-between; padding-top:8px; border-top:1px dashed var(--color-border); font-size:11px;">
+                  <span style="color:var(--color-text-muted);">Recorded on ${dateFormatted}</span>
+                  <div style="display:flex; align-items:center; gap:6px;">
+                    <a href="${waShareUrl}" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" style="padding:4px 8px; font-size:11px; height:26px;">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
+                      <span>Share</span>
+                    </a>
+                    <button type="button" class="btn-secondary-action delete-expense-btn" data-expense-id="${exp.id}" style="color:#ef4444; padding:4px 8px; font-size:11px; height:26px;">
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+
+        function openAddExpenseModal(defaultCategory) {
+          const modal = document.getElementById('addExpenseModal');
+          const bldgSelect = document.getElementById('expBuildingSelect');
+          const catSelect = document.getElementById('expCategorySelect');
+          const titleInput = document.getElementById('expTitleInput');
+          const amountInput = document.getElementById('expAmountInput');
+          const dateInput = document.getElementById('expDateInput');
+          const paidToInput = document.getElementById('expPaidToInput');
+          const refInput = document.getElementById('expReceiptRefInput');
+
+          if (!modal) return;
+
+          if (bldgSelect) {
+            bldgSelect.innerHTML = `
+              <option value="all">🏢 All Properties (General / Shared)</option>
+              ${appData.buildings.map(b => `
+                <option value="${b.id}" ${currentBuildingFilter === b.id ? 'selected' : ''}>🏢 ${escapeHtml(b.name)}</option>
+              `).join('')}
+            `;
+          }
+
+          if (catSelect && defaultCategory) {
+            catSelect.value = defaultCategory;
+          }
+
+          if (titleInput) titleInput.value = '';
+          if (amountInput) amountInput.value = '';
+          if (paidToInput) paidToInput.value = '';
+          if (refInput) refInput.value = '';
+          if (dateInput) dateInput.value = TODAY.toISOString().split('T')[0];
+
+          modal.classList.add('open');
+          setTimeout(() => titleInput?.focus(), 150);
+        }
+
+        function closeAddExpenseModal() {
+          const modal = document.getElementById('addExpenseModal');
+          if (modal) modal.classList.remove('open');
+        }
+
+        function handleAddExpenseSubmit() {
+          const bldgSelect = document.getElementById('expBuildingSelect');
+          const catSelect = document.getElementById('expCategorySelect');
+          const titleInput = document.getElementById('expTitleInput');
+          const amountInput = document.getElementById('expAmountInput');
+          const dateInput = document.getElementById('expDateInput');
+          const modeSelect = document.getElementById('expModeSelect');
+          const paidToInput = document.getElementById('expPaidToInput');
+          const refInput = document.getElementById('expReceiptRefInput');
+
+          const title = titleInput?.value.trim();
+          const amount = parseFloat(amountInput?.value);
+
+          if (!title) {
+            alert('Please enter an expense title / description.');
+            return;
+          }
+          if (isNaN(amount) || amount <= 0) {
+            alert('Please enter a valid positive expense amount (₹).');
+            return;
+          }
+
+          const chosenDate = dateInput?.value || TODAY.toISOString().split('T')[0];
+          const expMonth = chosenDate.slice(0, 7);
+
+          const newExpense = {
+            id: 'exp-' + Date.now(),
+            buildingId: bldgSelect?.value || 'all',
+            category: catSelect?.value || 'Other',
+            title: title,
+            amount: amount,
+            date: chosenDate,
+            month: expMonth,
+            paymentMode: modeSelect?.value || 'UPI',
+            paidTo: paidToInput?.value.trim() || '',
+            receiptRef: refInput?.value.trim() || ''
+          };
+
+          if (!appData.expenses) appData.expenses = [];
+          appData.expenses.unshift(newExpense);
+
+          saveData();
+          closeAddExpenseModal();
+          showToast(`Logged ₹${amount.toLocaleString('en-IN')} expense for ${newExpense.category}!`);
+        }
+
         // --- COMPLAINTS & MAINTENANCE TAB RENDERING (FEATURE 2) ---
         function renderComplaintsTab() {
           const complaintsListContainer = document.getElementById('complaintsListContainer');
@@ -4870,6 +5578,7 @@ self.addEventListener('fetch', (event) => {
           }
 
           updateWhatsAppPreview();
+          renderSettingsUpiQr();
         }
 
         function updateWhatsAppPreview() {
@@ -4968,9 +5677,12 @@ self.addEventListener('fetch', (event) => {
           if (modal) modal.classList.remove('open');
         }
 
+        let activePayModalTenant = null;
+
         function openRecordPaymentModal(tenantId) {
           const tenant = appData.tenants.find(t => t.id === tenantId);
           if (!tenant) return;
+          activePayModalTenant = tenant;
 
           const billing = getTenantBillingInfo(tenant);
           const bldgName = getBuildingName(tenant.buildingId);
@@ -4981,13 +5693,18 @@ self.addEventListener('fetch', (event) => {
           const amtInput = document.getElementById('payAmountInput');
           const dateInput = document.getElementById('payDateInput');
           const idInput = document.getElementById('payModalTenantId');
+          const qrContainer = document.getElementById('payModalQrContainer');
+          const qrToggleBtn = document.getElementById('togglePayUpiQrBtn');
 
           if (nameEl) nameEl.textContent = tenant.name;
           if (metaEl) metaEl.textContent = `${bldgName} · Room ${tenant.roomNumber} (${tenant.bedLabel}) · Phone: ${tenant.phone}`;
-          if (dueTextEl) dueTextEl.textContent = `Outstanding Due: ${formatCurrency(tenant.rentAmount)} (${billing.statusText})`;
-          if (amtInput) amtInput.value = tenant.rentAmount;
+          if (dueTextEl) dueTextEl.textContent = `Outstanding Due: ${formatCurrency(billing.amountDue || tenant.rentAmount)} (${billing.statusText})`;
+          if (amtInput) amtInput.value = billing.amountDue || tenant.rentAmount;
           if (dateInput) dateInput.value = TODAY.toISOString().split('T')[0];
           if (idInput) idInput.value = tenant.id;
+
+          if (qrContainer) qrContainer.style.display = 'none';
+          if (qrToggleBtn) qrToggleBtn.textContent = '📱 UPI QR';
 
           const modal = document.getElementById('recordPaymentModal');
           if (modal) modal.classList.add('open');
@@ -4996,6 +5713,65 @@ self.addEventListener('fetch', (event) => {
         function closeRecordPaymentModal() {
           const modal = document.getElementById('recordPaymentModal');
           if (modal) modal.classList.remove('open');
+          activePayModalTenant = null;
+        }
+
+        function renderPaymentUpiQr(tenant, amount) {
+          const canvas = document.getElementById('payModalQrCanvas');
+          const upiText = document.getElementById('payModalUpiIdText');
+          if (!canvas || !tenant) return;
+          const upiId = appData.config.upiId || 'sureshreddy@okhdfcbank';
+          if (upiText) upiText.textContent = upiId;
+
+          const ownerName = appData.config.ownerName || appData.config.pgName || 'Hostel PG Sathi';
+          const amtVal = Number(amount || tenant.rentAmount || 0);
+          const amtStr = amtVal > 0 ? amtVal.toFixed(2) : '';
+          const note = `Rent Rm ${tenant.roomNumber} ${tenant.name}`.slice(0, 30);
+
+          let upiUrl = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(ownerName)}`;
+          if (amtVal > 0) upiUrl += `&am=${amtStr}`;
+          upiUrl += `&tn=${encodeURIComponent(note)}&cu=INR`;
+
+          try {
+            QRCode.toCanvas(canvas, upiUrl, {
+              width: 170,
+              margin: 1,
+              color: {
+                dark: '#0f172a',
+                light: '#ffffff'
+              }
+            }, (err) => {
+              if (err) console.error('Payment QR code error:', err);
+            });
+          } catch (e) {
+            console.error('QR code canvas error:', e);
+          }
+        }
+
+        function renderSettingsUpiQr() {
+          const canvas = document.getElementById('settingsUpiQrCanvas');
+          const displayVal = document.getElementById('settingsUpiDisplayVal');
+          if (!canvas) return;
+          const upiId = appData.config.upiId || 'sureshreddy@okhdfcbank';
+          if (displayVal) displayVal.textContent = upiId;
+
+          const ownerName = appData.config.ownerName || appData.config.pgName || 'Hostel PG Sathi';
+          const upiUrl = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(ownerName)}&cu=INR`;
+
+          try {
+            QRCode.toCanvas(canvas, upiUrl, {
+              width: 150,
+              margin: 1,
+              color: {
+                dark: '#0f172a',
+                light: '#ffffff'
+              }
+            }, (err) => {
+              if (err) console.error('Settings QR generation error:', err);
+            });
+          } catch (e) {
+            console.error('Settings QR canvas error:', e);
+          }
         }
 
         function openAddRoomModal() {
@@ -5757,6 +6533,7 @@ self.addEventListener('fetch', (event) => {
               if (targetView) targetView.classList.add('active');
 
               if (targetId === 'tab-complaints') renderComplaintsTab();
+              if (targetId === 'tab-expenses') renderExpensesTab();
               if (targetId === 'tab-tenants') renderTenantsTab();
               if (targetId === 'tab-rooms') renderRoomsTab();
               if (targetId === 'tab-dashboard') renderDashboard();
@@ -5773,6 +6550,13 @@ self.addEventListener('fetch', (event) => {
           document.getElementById('dashViewAllRoomsBtn')?.addEventListener('click', () => {
             document.querySelector('[data-tab="tab-rooms"]')?.click();
           });
+
+          document.getElementById('dashViewAllExpensesBtn')?.addEventListener('click', () => {
+            document.querySelector('[data-tab="tab-expenses"]')?.click();
+          });
+          document.getElementById('dashGoToExpensesTabBtn')?.addEventListener('click', () => {
+            document.querySelector('[data-tab="tab-expenses"]')?.click();
+          });
         }
 
         function setupEventListeners() {
@@ -5786,6 +6570,7 @@ self.addEventListener('fetch', (event) => {
               renderDashboard();
               renderRoomsTab();
               renderTenantsTab();
+              renderExpensesTab();
               showToast(`Showing: ${e.target.options[e.target.selectedIndex].text}`);
             });
           }
@@ -5951,6 +6736,49 @@ self.addEventListener('fetch', (event) => {
           document.getElementById('confirmAddElectricityBtn')?.addEventListener('click', handleAddElectricitySubmit);
           document.getElementById('openElectricityCalculatorHeaderBtn')?.addEventListener('click', () => openElectricityModal());
 
+          // Expenses Modal Triggers, Filters & Search
+          document.getElementById('openAddExpenseModalBtn')?.addEventListener('click', () => openAddExpenseModal());
+          document.getElementById('dashLogExpenseBtn')?.addEventListener('click', () => openAddExpenseModal());
+          document.getElementById('dashOpenExpenseModalBtn')?.addEventListener('click', () => openAddExpenseModal());
+          document.getElementById('closeAddExpenseModalBtn')?.addEventListener('click', closeAddExpenseModal);
+          document.getElementById('cancelAddExpenseBtn')?.addEventListener('click', closeAddExpenseModal);
+          document.getElementById('submitAddExpenseBtn')?.addEventListener('click', handleAddExpenseSubmit);
+
+          const expFilterBar = document.getElementById('expenseCategoryFilterBar');
+          if (expFilterBar) {
+            expFilterBar.addEventListener('click', (e) => {
+              const btn = e.target.closest('.segmented-tab');
+              if (!btn) return;
+              expFilterBar.querySelectorAll('.segmented-tab').forEach(t => t.classList.remove('active'));
+              btn.classList.add('active');
+              currentExpenseCategoryFilter = btn.dataset.expenseFilter || 'all';
+              renderExpensesTab();
+            });
+          }
+
+          const expSearchInput = document.getElementById('expenseSearchInput');
+          const clearExpSearchBtn = document.getElementById('clearExpenseSearchBtn');
+          if (expSearchInput) {
+            expSearchInput.addEventListener('input', (e) => {
+              expenseSearchQuery = e.target.value;
+              if (clearExpSearchBtn) {
+                clearExpSearchBtn.style.display = expenseSearchQuery.length > 0 ? 'flex' : 'none';
+              }
+              renderExpensesTab();
+            });
+          }
+          if (clearExpSearchBtn) {
+            clearExpSearchBtn.addEventListener('click', () => {
+              if (expSearchInput) {
+                expSearchInput.value = '';
+                expSearchInput.focus();
+              }
+              expenseSearchQuery = '';
+              clearExpSearchBtn.style.display = 'none';
+              renderExpensesTab();
+            });
+          }
+
           // Complaints Modal Triggers & Status Filter
           document.getElementById('openAddComplaintModalBtn')?.addEventListener('click', openAddComplaintModal);
           document.getElementById('closeAddComplaintModalBtn')?.addEventListener('click', closeAddComplaintModal);
@@ -5983,10 +6811,47 @@ self.addEventListener('fetch', (event) => {
             }
           });
 
+          // UPI QR Code in Record Payment Modal
+          document.getElementById('togglePayUpiQrBtn')?.addEventListener('click', () => {
+            const qrContainer = document.getElementById('payModalQrContainer');
+            const qrToggleBtn = document.getElementById('togglePayUpiQrBtn');
+            const amtInput = document.getElementById('payAmountInput');
+            if (!qrContainer) return;
+            const isHidden = qrContainer.style.display === 'none';
+            if (isHidden) {
+              qrContainer.style.display = 'block';
+              if (qrToggleBtn) qrToggleBtn.textContent = '✕ Hide QR';
+              if (activePayModalTenant) {
+                renderPaymentUpiQr(activePayModalTenant, amtInput ? amtInput.value : 0);
+              }
+            } else {
+              qrContainer.style.display = 'none';
+              if (qrToggleBtn) qrToggleBtn.textContent = '📱 UPI QR';
+            }
+          });
+
+          document.getElementById('payAmountInput')?.addEventListener('input', (e) => {
+            const qrContainer = document.getElementById('payModalQrContainer');
+            if (qrContainer && qrContainer.style.display !== 'none' && activePayModalTenant) {
+              renderPaymentUpiQr(activePayModalTenant, e.target.value);
+            }
+          });
+
+          document.getElementById('copyPayUpiIdBtn')?.addEventListener('click', () => {
+            const upiId = appData.config.upiId || 'sureshreddy@okhdfcbank';
+            navigator.clipboard.writeText(upiId).then(() => {
+              showToast(`📋 Copied UPI ID: ${upiId}`);
+            }).catch(() => {
+              showToast(`UPI ID: ${upiId}`);
+            });
+          });
+
           // Bulk Reminders Modal Triggers
           document.getElementById('bulkReminderBtn')?.addEventListener('click', openBulkRemindersModal);
           document.getElementById('closeBulkRemindersBtn')?.addEventListener('click', closeBulkRemindersModal);
+          document.getElementById('closeBulkModalActionBtn')?.addEventListener('click', closeBulkRemindersModal);
           document.getElementById('copyAllRemindersBtn')?.addEventListener('click', handleCopyAllReminders);
+          document.getElementById('launchAllRemindersBtn')?.addEventListener('click', handleLaunchBulkSequential);
           document.getElementById('launchBulkSequentialBtn')?.addEventListener('click', handleLaunchBulkSequential);
 
           // Waitlist & Vacancy Modal Triggers
@@ -6049,6 +6914,17 @@ self.addEventListener('fetch', (event) => {
             if (receiptBtn) {
               const tid = receiptBtn.dataset.tenantId;
               if (tid) handleShareReceipt(tid);
+              return;
+            }
+
+            const delExpBtn = e.target.closest('.delete-expense-btn');
+            if (delExpBtn) {
+              const eid = delExpBtn.dataset.expenseId;
+              if (eid && confirm("Delete this property expense record?")) {
+                appData.expenses = (appData.expenses || []).filter(e => e.id !== eid);
+                saveData();
+                showToast("Expense record removed.");
+              }
               return;
             }
 
