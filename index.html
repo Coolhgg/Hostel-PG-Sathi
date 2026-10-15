@@ -1179,7 +1179,7 @@
         -webkit-backdrop-filter: blur(12px);
         border-top: 1px solid var(--color-border);
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         align-items: center;
         z-index: 45;
         padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -1598,6 +1598,263 @@
         font-weight: 600;
         color: var(--color-text-muted);
       }
+
+      /* FEATURE 1: Electricity Sub-Meter Calculator Styles */
+      .meter-calc-card {
+        background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+        border: 1px solid #bbf7d0;
+        border-radius: var(--radius-md);
+        padding: 14px;
+        margin-bottom: 12px;
+      }
+      .calc-display-box {
+        background: #ffffff;
+        border: 1px dashed #86efac;
+        border-radius: var(--radius-sm);
+        padding: 10px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+      .calc-stat-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: #166534;
+        text-transform: uppercase;
+      }
+      .calc-stat-val {
+        font-size: 18px;
+        font-weight: 800;
+        color: #15803d;
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* FEATURE 2: Complaints & Maintenance Styles */
+      .complaint-card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        padding: 14px;
+        box-shadow: var(--shadow-card);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: transform 0.15s ease;
+      }
+      .complaint-card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .complaint-category-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: var(--color-brand-light);
+        color: var(--color-brand);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
+      }
+      .complaint-desc-text {
+        font-size: 13px;
+        color: var(--color-text-primary);
+        line-height: 1.45;
+        background: var(--color-surface-muted);
+        padding: 10px 12px;
+        border-radius: var(--radius-sm);
+        border-left: 3px solid var(--color-brand);
+      }
+      .complaint-status-select {
+        height: 32px;
+        padding: 0 10px;
+        border-radius: 16px;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        outline: none;
+        border: 1px solid transparent;
+        font-family: inherit;
+        transition: all 0.15s ease;
+      }
+      .complaint-status-select.status-pending {
+        background: #fef3c7;
+        color: #92400e;
+        border-color: #fde68a;
+      }
+      .complaint-status-select.status-inprogress {
+        background: #dbeafe;
+        color: #1e40af;
+        border-color: #bfdbfe;
+      }
+      .complaint-status-select.status-fixed {
+        background: #d1fae5;
+        color: #065f46;
+        border-color: #a7f3d0;
+      }
+
+      /* Priority Badges */
+      .priority-badge-high {
+        font-size: 10px;
+        font-weight: 800;
+        padding: 2px 6px;
+        border-radius: 4px;
+        background: #fee2e2;
+        color: #991b1b;
+      }
+      .priority-badge-medium {
+        font-size: 10px;
+        font-weight: 800;
+        padding: 2px 6px;
+        border-radius: 4px;
+        background: #fef3c7;
+        color: #92400e;
+      }
+      .priority-badge-low {
+        font-size: 10px;
+        font-weight: 800;
+        padding: 2px 6px;
+        border-radius: 4px;
+        background: #f1f5f9;
+        color: #475569;
+      }
+
+      /* FEATURE 3: Receipt Share Button */
+      .receipt-btn {
+        background: #059669;
+        color: #ffffff;
+        border: none;
+        padding: 6px 11px;
+        border-radius: var(--radius-sm);
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        transition: background 0.15s ease;
+      }
+      .receipt-btn:hover {
+        background: #047857;
+      }
+
+      /* FEATURE 4: Waitlist & Vacancy Notification Banner */
+      .waitlist-card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        padding: 12px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        box-shadow: var(--shadow-sm);
+      }
+      .vacancy-alert-banner {
+        background: linear-gradient(135deg, #4338ca 0%, #4f46e5 100%);
+        color: #ffffff;
+        border-radius: var(--radius-md);
+        padding: 14px;
+        margin-bottom: 14px;
+        box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      /* FEATURE 5: Revenue Forecast Dashboard Card */
+      .revenue-forecast-box {
+        background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+        color: #ffffff;
+        border-radius: var(--radius-md);
+        padding: 16px;
+        margin-bottom: 18px;
+        box-shadow: 0 10px 25px -5px rgba(49, 46, 129, 0.4);
+        position: relative;
+        overflow: hidden;
+      }
+      .forecast-header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+      .forecast-main-val {
+        font-size: 26px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        font-variant-numeric: tabular-nums;
+        color: #ffffff;
+      }
+      .forecast-breakdown-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(8px);
+        padding: 10px;
+        border-radius: var(--radius-sm);
+        margin: 12px 0 10px;
+      }
+      .forecast-sub-item {
+        display: flex;
+        flex-direction: column;
+      }
+      .forecast-sub-label {
+        font-size: 10px;
+        text-transform: uppercase;
+        color: #c7d2fe;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+      }
+      .forecast-sub-val {
+        font-size: 13px;
+        font-weight: 800;
+        color: #ffffff;
+        margin-top: 2px;
+        font-variant-numeric: tabular-nums;
+      }
+      .forecast-progress-track {
+        height: 8px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        overflow: hidden;
+        display: flex;
+        margin-top: 6px;
+      }
+      .forecast-bar-collected {
+        background: #10b981;
+        height: 100%;
+        transition: width 0.3s ease;
+      }
+      .forecast-bar-pending {
+        background: #f59e0b;
+        height: 100%;
+        transition: width 0.3s ease;
+      }
+
+      /* FEATURE 6: Bulk Reminders Modal & Trigger */
+      .bulk-reminders-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-height: 380px;
+        overflow-y: auto;
+      }
+      .bulk-item-row {
+        background: var(--color-surface-muted);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-sm);
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
     </style>
   </head>
   <body>
@@ -1755,6 +2012,43 @@
               </div>
             </div>
 
+            <!-- FEATURE 5: REVENUE FORECAST DASHBOARD CARD -->
+            <div class="revenue-forecast-box">
+              <div class="forecast-header-row">
+                <div>
+                  <div style="font-size:11px; text-transform:uppercase; color:#c7d2fe; font-weight:800; letter-spacing:0.5px;">Financial Projection · Oct 2026</div>
+                  <h2 style="font-size:16px; font-weight:800; margin:2px 0 0; color:#ffffff;">Monthly Revenue Forecast</h2>
+                </div>
+                <span class="chart-building-badge" id="forecastScopeBadge" style="background:rgba(255,255,255,0.2); color:#ffffff;">All Properties</span>
+              </div>
+              <div>
+                <div style="font-size:11px; color:#c7d2fe; margin-bottom:2px;">Expected Active Monthly Rent & Dues</div>
+                <div class="forecast-main-val" id="forecastExpectedVal">₹45,500</div>
+              </div>
+              <div class="forecast-breakdown-grid">
+                <div class="forecast-sub-item">
+                  <span class="forecast-sub-label">Collected</span>
+                  <span class="forecast-sub-val" id="forecastCollectedVal" style="color:#6ee7b7;">₹24,500</span>
+                </div>
+                <div class="forecast-sub-item">
+                  <span class="forecast-sub-label">Pending</span>
+                  <span class="forecast-sub-val" id="forecastPendingVal" style="color:#fcd34d;">₹21,000</span>
+                </div>
+                <div class="forecast-sub-item">
+                  <span class="forecast-sub-label">Full Capacity</span>
+                  <span class="forecast-sub-val" id="forecastPotentialVal" style="color:#e0e7ff;">₹62,000</span>
+                </div>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#c7d2fe; margin-top:6px;">
+                <span id="forecastRealizedPercent">54% Collected · 46% Pending</span>
+                <span id="forecastOccupancyPotentialText">Capacity Yield: 73%</span>
+              </div>
+              <div class="forecast-progress-track">
+                <div class="forecast-bar-collected" id="forecastBarCollected" style="width: 54%;"></div>
+                <div class="forecast-bar-pending" id="forecastBarPending" style="width: 46%;"></div>
+              </div>
+            </div>
+
             <!-- FEATURE 6: Floor-by-Floor Occupancy Bar Chart Visualization -->
             <div class="chart-card-container">
               <div class="chart-header-row">
@@ -1772,20 +2066,40 @@
               </div>
             </div>
 
-            <!-- FEATURE 4: PENDING ACTIONS WIDGET (Due Date & Reminder Window Alert) -->
+            <!-- FEATURE 4 & 6: PENDING ACTIONS WIDGET & BULK REMINDERS -->
             <div class="alert-widget-container">
               <div class="alert-widget-header">
                 <div>
                   <div class="section-kicker">High Priority</div>
                   <h2 class="section-heading-title">Pending Actions & Rent Reminders</h2>
                 </div>
-                <span class="alert-badge" id="pendingAlertsBadge">0 Alerts</span>
+                <div style="display:flex; align-items:center; gap:6px;">
+                  <button type="button" class="whatsapp-btn" id="bulkReminderBtn" style="padding:5px 9px; font-size:11px; height:28px;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
+                    <span>⚡ Bulk Reminders</span>
+                  </button>
+                  <span class="alert-badge" id="pendingAlertsBadge">0 Alerts</span>
+                </div>
               </div>
 
               <!-- List of pending and overdue residents triggering WhatsApp action -->
               <div class="alert-card-list" id="pendingAlertsList">
                 <!-- Dynamically populated -->
               </div>
+            </div>
+
+            <!-- FEATURE 4: Bed Inquiries & Waitlist Card -->
+            <div style="background:#ffffff; border:1px solid var(--color-border); border-radius:var(--radius-md); padding:12px 14px; margin-top:14px; box-shadow:var(--shadow-card); display:flex; align-items:center; justify-content:space-between;">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <div style="width:36px; height:36px; border-radius:18px; background:#eff6ff; color:#2563eb; display:flex; align-items:center; justify-content:center; font-size:18px;">👥</div>
+                <div>
+                  <div style="font-size:13px; font-weight:700; color:var(--color-text-primary);">Bed Inquiries & Waitlist</div>
+                  <div style="font-size:11px; color:var(--color-text-secondary);" id="dashWaitlistSub">2 prospective residents waiting</div>
+                </div>
+              </div>
+              <button class="btn-secondary-action" id="openWaitlistModalBtn" style="font-weight:700; color:var(--color-brand); border-color:var(--color-brand);">
+                View Waitlist
+              </button>
             </div>
 
             <!-- Property Overview Snapshot -->
@@ -1850,10 +2164,15 @@
                 <div class="section-kicker">Resident Directory</div>
                 <h2 class="section-heading-title">Residents / Tenants</h2>
               </div>
-              <button class="header-btn primary" id="openAddTenantBtn2">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                <span>+ Resident</span>
-              </button>
+              <div style="display:flex; align-items:center; gap:6px;">
+                <button class="header-btn" id="openElectricityCalculatorHeaderBtn" title="Calculate Electricity Sub-Meter Bill" style="background:var(--color-surface); color:#166534; border:1px solid #bbf7d0;">
+                  <span style="font-size:12px;">⚡ Calculate Bill</span>
+                </button>
+                <button class="header-btn primary" id="openAddTenantBtn2">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>+ Resident</span>
+                </button>
+              </div>
             </div>
 
             <!-- Search Resident by Name -->
@@ -2034,6 +2353,32 @@
             </div>
           </section>
 
+          <!-- TAB: COMPLAINTS & MAINTENANCE -->
+          <section class="view-container" id="tab-complaints">
+            <div class="section-heading-row">
+              <div>
+                <div class="section-kicker">Maintenance Desk</div>
+                <h2 class="section-heading-title">Complaints & Issues</h2>
+              </div>
+              <button class="header-btn primary" id="openAddComplaintModalBtn">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <span>+ Log Issue</span>
+              </button>
+            </div>
+
+            <!-- Complaints status filter -->
+            <div class="segmented-filter-bar" id="complaintsFilterBar">
+              <button class="segmented-tab active" data-complaint-filter="all">All <span class="count-pill" id="countAllComplaints">0</span></button>
+              <button class="segmented-tab" data-complaint-filter="Pending">Pending <span class="count-pill" id="countPendingComplaints">0</span></button>
+              <button class="segmented-tab" data-complaint-filter="In Progress">In Progress <span class="count-pill" id="countProgressComplaints">0</span></button>
+              <button class="segmented-tab" data-complaint-filter="Fixed">Fixed <span class="count-pill" id="countFixedComplaints">0</span></button>
+            </div>
+
+            <div class="complaints-list" id="complaintsListContainer" style="display:flex; flex-direction:column; gap:12px;">
+              <!-- Dynamically populated complaints -->
+            </div>
+          </section>
+
         </main>
 
         <!-- Floating Add Action Button on Residents / Rooms -->
@@ -2044,7 +2389,7 @@
           </svg>
         </button>
 
-        <!-- Bottom Navigation Bar (4 Tabs: Dashboard, Rooms/Beds, Residents, Settings) -->
+        <!-- Bottom Navigation Bar (5 Tabs: Dashboard, Rooms/Beds, Residents, Complaints, Settings) -->
         <nav class="bottom-nav">
           <button class="nav-tab-item active" data-tab="tab-dashboard">
             <svg class="nav-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2075,6 +2420,14 @@
               <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
             <span class="nav-tab-label">Residents</span>
+          </button>
+
+          <button class="nav-tab-item" data-tab="tab-complaints">
+            <svg class="nav-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+            <span class="nav-tab-label">Complaints</span>
+            <span class="nav-badge-dot" id="navComplaintsBadge" style="display:none; background:#ea580c;">0</span>
           </button>
 
           <button class="nav-tab-item" data-tab="tab-settings">
@@ -2316,6 +2669,259 @@
             </div>
             <div class="sheet-footer">
               <button class="sheet-btn primary" id="doneIosGuideBtn">Got It</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODAL 6: ELECTRICITY SUB-METER CALCULATOR (FEATURE 1) -->
+        <div class="modal-backdrop" id="electricityModal">
+          <div class="bottom-sheet">
+            <div class="sheet-drag-handle"></div>
+            <div class="sheet-header">
+              <h3 class="sheet-title">Calculate Electricity Bill</h3>
+              <button class="sheet-close-btn" id="closeElectricityModalBtn">✕</button>
+            </div>
+            <div class="sheet-body">
+              <div class="meter-calc-card">
+                <div style="font-size:12px; font-weight:700; color:#166534; display:flex; align-items:center; gap:6px;">
+                  <span>⚡ Sub-Meter Utility Billing</span>
+                </div>
+                <div style="font-size:14px; font-weight:800; color:var(--color-text-primary); margin-top:2px;" id="elecTenantNameHeader">Select Resident</div>
+                <div style="font-size:11px; color:var(--color-text-secondary);" id="elecTenantRoomHeader">Room & Sub-meter</div>
+              </div>
+
+              <form id="electricityCalcForm">
+                <div class="form-group">
+                  <label class="form-label" for="elecTenantSelect">Select Resident / Room *</label>
+                  <select class="form-select" id="elecTenantSelect" required>
+                    <!-- Populated dynamically -->
+                  </select>
+                </div>
+
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                  <div class="form-group">
+                    <label class="form-label" for="elecPrevReading">Previous Unit Reading *</label>
+                    <input type="number" step="0.1" class="form-input" id="elecPrevReading" placeholder="e.g. 1024" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="elecCurrReading">Current Unit Reading *</label>
+                    <input type="number" step="0.1" class="form-input" id="elecCurrReading" placeholder="e.g. 1098" required />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="elecRatePerUnit">Rate per Unit (₹) *</label>
+                  <input type="number" step="0.5" class="form-input" id="elecRatePerUnit" value="10" placeholder="e.g. 10" required />
+                </div>
+
+                <div class="calc-display-box">
+                  <div>
+                    <div class="calc-stat-label">Units Consumed</div>
+                    <div style="font-size:16px; font-weight:800; color:#1e293b;" id="calcUnitsConsumed">0 Units</div>
+                  </div>
+                  <div style="text-align:right;">
+                    <div class="calc-stat-label">Calculated Total</div>
+                    <div class="calc-stat-val" id="calcTotalBill">₹0</div>
+                  </div>
+                </div>
+                <div style="font-size:11px; color:var(--color-text-muted); margin-top:6px;">
+                  Formula: (Current - Previous) × Rate per Unit
+                </div>
+              </form>
+            </div>
+            <div class="sheet-footer">
+              <button type="button" class="sheet-btn secondary" id="cancelElecBtn">Cancel</button>
+              <button type="button" class="sheet-btn primary" id="confirmAddElectricityBtn" style="background:#16a34a;">Calculate & Add to Rent</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODAL 7: LOG NEW COMPLAINT (FEATURE 2) -->
+        <div class="modal-backdrop" id="addComplaintModal">
+          <div class="bottom-sheet">
+            <div class="sheet-drag-handle"></div>
+            <div class="sheet-header">
+              <h3 class="sheet-title">Log Maintenance Issue</h3>
+              <button class="sheet-close-btn" id="closeAddComplaintModalBtn">✕</button>
+            </div>
+            <div class="sheet-body">
+              <form id="addComplaintForm">
+                <div class="form-group">
+                  <label class="form-label" for="complaintBuildingSelect">Property / Building *</label>
+                  <select class="form-select" id="complaintBuildingSelect" required>
+                    <!-- Populated dynamically -->
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="complaintTenantSelect">Related Resident / Room *</label>
+                  <select class="form-select" id="complaintTenantSelect" required>
+                    <!-- Populated dynamically -->
+                  </select>
+                </div>
+
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                  <div class="form-group">
+                    <label class="form-label" for="complaintCategorySelect">Issue Category *</label>
+                    <select class="form-select" id="complaintCategorySelect" required>
+                      <option value="Plumbing">🚰 Plumbing</option>
+                      <option value="WiFi">📶 WiFi & Internet</option>
+                      <option value="Air Conditioner" selected>❄️ Air Conditioner (AC)</option>
+                      <option value="Electrical">💡 Electrical & Fan</option>
+                      <option value="Carpentry">🚪 Carpentry & Furniture</option>
+                      <option value="Cleaning">🧹 Cleaning / Housekeeping</option>
+                      <option value="Other">⚠️ Other Issue</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="complaintPrioritySelect">Priority Level *</label>
+                    <select class="form-select" id="complaintPrioritySelect" required>
+                      <option value="High">🔴 High (Urgent)</option>
+                      <option value="Medium" selected>🟡 Medium</option>
+                      <option value="Low">⚪ Low</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="complaintDescInput">Issue Description & Details *</label>
+                  <textarea class="form-textarea" id="complaintDescInput" placeholder="Describe the problem (e.g. AC split unit leaking water, washroom geyser tripping breaker)..." required></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="sheet-footer">
+              <button type="button" class="sheet-btn secondary" id="cancelComplaintBtn">Cancel</button>
+              <button type="button" class="sheet-btn primary" id="confirmAddComplaintBtn">Log Issue</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODAL 8: BULK WHATSAPP REMINDERS (FEATURE 6) -->
+        <div class="modal-backdrop" id="bulkRemindersModal">
+          <div class="bottom-sheet" style="max-height:92%;">
+            <div class="sheet-drag-handle"></div>
+            <div class="sheet-header">
+              <h3 class="sheet-title">⚡ Bulk WhatsApp Reminders</h3>
+              <button class="sheet-close-btn" id="closeBulkRemindersBtn">✕</button>
+            </div>
+            <div class="sheet-body">
+              <div style="background:#ecfdf5; border:1px solid #a7f3d0; padding:12px; border-radius:var(--radius-sm); margin-bottom:12px;">
+                <div style="font-size:14px; font-weight:800; color:#065f46;" id="bulkSummaryTitle">Pending Reminders Queue</div>
+                <div style="font-size:12px; color:#047857; margin-top:2px;" id="bulkSummarySubtitle">Send personalized rent reminders directly to residents.</div>
+              </div>
+
+              <div class="bulk-reminders-list" id="bulkRemindersListContainer">
+                <!-- Dynamically populated rows -->
+              </div>
+            </div>
+            <div class="sheet-footer" style="flex-direction:column; gap:8px;">
+              <div style="display:flex; gap:10px; width:100%;">
+                <button type="button" class="sheet-btn secondary" id="copyAllRemindersBtn">
+                  📋 Copy All Text
+                </button>
+                <button type="button" class="sheet-btn primary" id="launchAllRemindersBtn" style="background:#25d366;">
+                  🚀 Open All on WhatsApp
+                </button>
+              </div>
+              <button type="button" class="btn-secondary-action" id="closeBulkModalActionBtn" style="justify-content:center; width:100%;">
+                Done
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODAL 9: WAITLIST & INQUIRIES (FEATURE 4) -->
+        <div class="modal-backdrop" id="waitlistModal">
+          <div class="bottom-sheet" style="max-height:92%;">
+            <div class="sheet-drag-handle"></div>
+            <div class="sheet-header">
+              <h3 class="sheet-title">Bed Inquiries & Waitlist</h3>
+              <button class="sheet-close-btn" id="closeWaitlistModalBtn">✕</button>
+            </div>
+            <div class="sheet-body">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <span style="font-size:13px; font-weight:700; color:var(--color-text-secondary);">Waitlisted Inquirers</span>
+                <button type="button" class="btn-secondary-action" id="toggleAddWaitlistFormBtn" style="color:var(--color-brand); font-weight:700;">
+                  + Add Inquirer
+                </button>
+              </div>
+
+              <!-- Collapsible Add Form -->
+              <div id="addWaitlistFormContainer" style="display:none; background:var(--color-surface-muted); padding:12px; border-radius:var(--radius-sm); border:1px solid var(--color-border); margin-bottom:14px;">
+                <div style="font-weight:700; font-size:13px; margin-bottom:8px;">New Prospective Inquirer</div>
+                <form id="newWaitlistForm">
+                  <div class="form-group">
+                    <label class="form-label" for="waitlistNameInput">Contact Name *</label>
+                    <input type="text" class="form-input" id="waitlistNameInput" placeholder="e.g. Ananya Sen" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="waitlistPhoneInput">WhatsApp Mobile Number *</label>
+                    <input type="tel" class="form-input" id="waitlistPhoneInput" placeholder="+91 98765 43210" required />
+                  </div>
+                  <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+                    <div class="form-group">
+                      <label class="form-label" for="waitlistRoomPref">Preferred Room</label>
+                      <select class="form-select" id="waitlistRoomPref">
+                        <option value="Single Deluxe">Single Room</option>
+                        <option value="Double Sharing" selected>Double Sharing</option>
+                        <option value="Triple Sharing">Triple Sharing</option>
+                        <option value="Any Available">Any Bed</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" for="waitlistBudgetInput">Max Budget (₹)</label>
+                      <input type="number" class="form-input" id="waitlistBudgetInput" placeholder="e.g. 8000" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="waitlistNotesInput">Joining Timeline / Notes</label>
+                    <input type="text" class="form-input" id="waitlistNotesInput" placeholder="e.g. College admission, joining next month" />
+                  </div>
+                  <button type="button" class="sheet-btn primary" id="saveWaitlistEntryBtn" style="height:36px; font-size:12px; margin-top:4px;">
+                    Save to Waitlist
+                  </button>
+                </form>
+              </div>
+
+              <div id="waitlistItemsContainer" style="display:flex; flex-direction:column; gap:10px;">
+                <!-- Dynamically populated waitlist entries -->
+              </div>
+            </div>
+            <div class="sheet-footer">
+              <button type="button" class="sheet-btn primary" id="closeWaitlistDoneBtn">Close</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODAL 10: BED VACANCY ALERT TO NOTIFY WAITLIST (FEATURE 4) -->
+        <div class="modal-backdrop" id="vacantNotifyModal">
+          <div class="bottom-sheet" style="max-height:92%;">
+            <div class="sheet-drag-handle"></div>
+            <div class="sheet-header">
+              <h3 class="sheet-title">🔔 Bed Vacant — Notify Waitlist!</h3>
+              <button class="sheet-close-btn" id="closeVacantNotifyModalBtn">✕</button>
+            </div>
+            <div class="sheet-body">
+              <div class="vacancy-alert-banner">
+                <div style="font-size:15px; font-weight:800;">A Bed Has Just Become Vacant!</div>
+                <div style="font-size:12px; opacity:0.95;" id="vacantRoomDetailText">
+                  Room 102 · Double Sharing (Bed B) is now available.
+                </div>
+                <div style="font-size:12px; background:rgba(0,0,0,0.2); padding:8px 10px; border-radius:6px;">
+                  We found prospective residents on your waitlist looking for this room type. Tap below to notify them on WhatsApp immediately before it is taken.
+                </div>
+              </div>
+
+              <div style="font-weight:700; font-size:13px; margin-bottom:8px; color:var(--color-text-primary);">
+                Matching Waitlist Candidates:
+              </div>
+
+              <div id="vacantMatchListContainer" style="display:flex; flex-direction:column; gap:10px;">
+                <!-- Dynamically populated waitlist candidate alert rows -->
+              </div>
+            </div>
+            <div class="sheet-footer">
+              <button type="button" class="sheet-btn secondary" id="dismissVacantAlertBtn">Dismiss</button>
             </div>
           </div>
         </div>
@@ -3091,6 +3697,71 @@ self.addEventListener('fetch', (event) => {
               { id: "pay-5b", tenantId: "tenant-gw1", amount: 8500, date: "2026-09-04", mode: "Bank Transfer", ref: "NEFT/881920 · SBI" },
               { id: "pay-6", tenantId: "tenant-ax1", amount: 6500, date: "2026-10-02", mode: "UPI", ref: "UPI/94827106 · PhonePe" },
               { id: "pay-15", tenantId: "tenant-15", amount: 7500, date: "2026-09-01", mode: "UPI", ref: "UPI/5512349 · Final Rent" }
+            ],
+            complaints: [
+              {
+                id: "comp-1",
+                buildingId: "bldg-1",
+                roomNumber: "102",
+                bedLabel: "Bed A",
+                tenantId: "tenant-3",
+                tenantName: "Vikram Malhotra",
+                category: "Air Conditioner",
+                description: "AC split unit leaking water into the room and cooling is low.",
+                dateLogged: "2026-10-12",
+                priority: "High",
+                status: "Pending"
+              },
+              {
+                id: "comp-2",
+                buildingId: "bldg-1",
+                roomNumber: "203",
+                bedLabel: "Bed B",
+                tenantId: "tenant-9",
+                tenantName: "Rohit Deshmukh",
+                category: "WiFi",
+                description: "2nd floor WiFi 5GHz frequency disconnecting frequently during evening work hours.",
+                dateLogged: "2026-10-13",
+                priority: "Medium",
+                status: "In Progress"
+              },
+              {
+                id: "comp-3",
+                buildingId: "bldg-1",
+                roomNumber: "101",
+                bedLabel: "Bed B",
+                tenantId: "tenant-2",
+                tenantName: "Amit Kumar",
+                category: "Plumbing",
+                description: "Attached washroom basin drain pipe leaking slowly.",
+                dateLogged: "2026-10-10",
+                priority: "Low",
+                status: "Fixed"
+              }
+            ],
+            waitlist: [
+              {
+                id: "wait-1",
+                name: "Ananya Sen",
+                phone: "+919876501234",
+                preferredBuildingId: "bldg-1",
+                preferredRoomType: "Double Sharing",
+                maxBudget: 8000,
+                dateAdded: "2026-10-11",
+                status: "Waiting",
+                notes: "Joining nearby MNC, needs room before 1st Nov"
+              },
+              {
+                id: "wait-2",
+                name: "Karan Johal",
+                phone: "+919812345678",
+                preferredBuildingId: "bldg-1",
+                preferredRoomType: "Single Deluxe",
+                maxBudget: 12000,
+                dateAdded: "2026-10-13",
+                status: "Waiting",
+                notes: "Looking for single occupancy room urgently"
+              }
             ]
           };
         }
@@ -3100,6 +3771,7 @@ self.addEventListener('fetch', (event) => {
         let currentRoomFilter = 'all';
         let currentFloorFilter = 'all';
         let currentTenantFilter = 'all';
+        let currentComplaintFilter = 'all'; // 'all', 'Pending', 'In Progress', 'Fixed'
         let tenantSearchQuery = '';
         let deferredPwaPrompt = null;
 
@@ -3125,8 +3797,15 @@ self.addEventListener('fetch', (event) => {
         function migrateDataIfNeeded() {
           let modified = false;
           if (!appData.buildings || !appData.buildings.length) {
-            // Migrate single building from previous format
             appData.buildings = getDefaultDemoData().buildings;
+            modified = true;
+          }
+          if (!appData.complaints || !Array.isArray(appData.complaints)) {
+            appData.complaints = getDefaultDemoData().complaints;
+            modified = true;
+          }
+          if (!appData.waitlist || !Array.isArray(appData.waitlist)) {
+            appData.waitlist = getDefaultDemoData().waitlist;
             modified = true;
           }
           if (appData.tenants && Array.isArray(appData.tenants)) {
@@ -3204,13 +3883,19 @@ self.addEventListener('fetch', (event) => {
             year: 'numeric'
           });
 
+          const rentDue = currentCyclePaid ? 0 : Number(tenant.rentAmount || 0);
+          const electricityDue = Number(tenant.electricityDues || 0);
+          const totalDue = rentDue + electricityDue;
+
           return {
             status,
             statusText,
             diffDays,
             dueDateFormatted,
             isAlertEligible,
-            amountDue: currentCyclePaid ? 0 : tenant.rentAmount
+            rentDue,
+            electricityDue,
+            amountDue: totalDue
           };
         }
 
@@ -3269,7 +3954,7 @@ self.addEventListener('fetch', (event) => {
             .replace(/{pg_name}/g, pgName)
             .replace(/{building_name}/g, buildingName)
             .replace(/{room_bed}/g, roomBed)
-            .replace(/{amount}/g, Number(tenant.rentAmount).toLocaleString('en-IN'))
+            .replace(/{amount}/g, Number(billing.amountDue || tenant.rentAmount).toLocaleString('en-IN'))
             .replace(/{due_date}/g, billing.dueDateFormatted)
             .replace(/{days_left}/g, daysLeftStr)
             .replace(/{upi_id}/g, upiId);
@@ -3282,6 +3967,23 @@ self.addEventListener('fetch', (event) => {
           return `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(message)}`;
         }
 
+        // FEATURE 3: ONE-CLICK WHATSAPP RECEIPT GENERATOR
+        function generateReceiptWhatsAppURL(tenant) {
+          const buildingName = getBuildingName(tenant.buildingId);
+          const roomBed = `Room ${tenant.roomNumber} (${tenant.bedLabel || 'Bed'})`;
+
+          // Plain-text receipt payload matching exact user requirement:
+          // "--- RENT RECEIPT --- \nProperty: [Building Name]\nTenant: [Name]\nRoom/Bed: [No]\nStatus: PAID\nThank you for your payment!"
+          const receiptPayload = `--- RENT RECEIPT --- \nProperty: ${buildingName}\nTenant: ${tenant.name}\nRoom/Bed: ${roomBed}\nStatus: PAID\nThank you for your payment!`;
+
+          let cleanPhone = (tenant.phone || "").replace(/[^0-9]/g, '');
+          if (cleanPhone.length === 10) {
+            cleanPhone = '91' + cleanPhone;
+          }
+
+          return `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(receiptPayload)}`;
+        }
+
         // 3. UI RENDERING ENGINES
         function refreshUI() {
           renderBuildingDropdown();
@@ -3289,6 +3991,7 @@ self.addEventListener('fetch', (event) => {
           renderDashboard();
           renderRoomsTab();
           renderTenantsTab();
+          renderComplaintsTab();
           renderSettingsTab();
         }
 
@@ -3383,7 +4086,7 @@ self.addEventListener('fetch', (event) => {
               totalCollectedRent += tenant.rentAmount;
               paidTenantCount++;
             } else {
-              totalOutstandingDues += tenant.rentAmount;
+              totalOutstandingDues += billing.amountDue;
               pendingTenantCount++;
               if (billing.isAlertEligible) {
                 pendingAlerts.push({ tenant, billing, buildingName: getBuildingName(tenant.buildingId) });
@@ -3409,6 +4112,65 @@ self.addEventListener('fetch', (event) => {
           if (kpiVacantBeds) kpiVacantBeds.textContent = vacantBeds;
           if (kpiCollectedRent) kpiCollectedRent.textContent = formatCurrency(totalCollectedRent);
           if (kpiCollectedSub) kpiCollectedSub.textContent = `${paidTenantCount} resident${paidTenantCount === 1 ? '' : 's'} paid`;
+
+          // FEATURE 5: Revenue Forecast calculations
+          let totalExpectedMonthlyRevenue = 0;
+          let fullCapacityPotential = 0;
+
+          activeBuildings.forEach(bldg => {
+            bldg.floors.forEach(floor => {
+              floor.rooms.forEach(room => {
+                const bedCount = (room.beds && room.beds.length) || 1;
+                fullCapacityPotential += (Number(room.rentDefault || 0) * bedCount);
+              });
+            });
+          });
+
+          appData.tenants.forEach(tenant => {
+            if ((tenant.status || 'active') !== 'active') return;
+            if (!activeBuildingIds.has(tenant.buildingId)) return;
+            totalExpectedMonthlyRevenue += (Number(tenant.rentAmount || 0) + Number(tenant.electricityDues || 0));
+          });
+
+          const projectedPending = Math.max(0, totalExpectedMonthlyRevenue - totalCollectedRent);
+          const collectedPct = totalExpectedMonthlyRevenue > 0
+            ? Math.min(100, Math.round((totalCollectedRent / totalExpectedMonthlyRevenue) * 100))
+            : 0;
+          const pendingPct = Math.max(0, 100 - collectedPct);
+          const capYield = fullCapacityPotential > 0
+            ? Math.round((totalExpectedMonthlyRevenue / fullCapacityPotential) * 100)
+            : 0;
+
+          const fExpected = document.getElementById('forecastExpectedVal');
+          const fCollected = document.getElementById('forecastCollectedVal');
+          const fPending = document.getElementById('forecastPendingVal');
+          const fPotential = document.getElementById('forecastPotentialVal');
+          const fScope = document.getElementById('forecastScopeBadge');
+          const fRealized = document.getElementById('forecastRealizedPercent');
+          const fYield = document.getElementById('forecastOccupancyPotentialText');
+          const fBarColl = document.getElementById('forecastBarCollected');
+          const fBarPend = document.getElementById('forecastBarPending');
+
+          if (fExpected) fExpected.textContent = formatCurrency(totalExpectedMonthlyRevenue);
+          if (fCollected) fCollected.textContent = formatCurrency(totalCollectedRent);
+          if (fPending) fPending.textContent = formatCurrency(projectedPending);
+          if (fPotential) fPotential.textContent = formatCurrency(fullCapacityPotential);
+          if (fScope) {
+            fScope.textContent = currentBuildingFilter === 'all'
+              ? `All Properties (${activeBuildings.length})`
+              : (getBuilding(currentBuildingFilter)?.name || 'Property');
+          }
+          if (fRealized) fRealized.textContent = `${collectedPct}% Collected · ${pendingPct}% Pending`;
+          if (fYield) fYield.textContent = `Capacity Yield: ${capYield}%`;
+          if (fBarColl) fBarColl.style.width = `${collectedPct}%`;
+          if (fBarPend) fBarPend.style.width = `${pendingPct}%`;
+
+          // Waitlist count in dashboard
+          const dashWaitlistSub = document.getElementById('dashWaitlistSub');
+          const activeWaitlist = (appData.waitlist || []).filter(w => w.status === 'Waiting');
+          if (dashWaitlistSub) {
+            dashWaitlistSub.textContent = `${activeWaitlist.length} prospective resident${activeWaitlist.length === 1 ? '' : 's'} waiting`;
+          }
 
           // FEATURE 6: Floor-by-Floor Occupancy Bar Chart Visualization
           const floorChartList = document.getElementById('floorOccupancyChartList');
@@ -3546,9 +4308,12 @@ self.addEventListener('fetch', (event) => {
                     <div class="action-alert-details">
                       <div>
                         <div style="font-size:11px; color:var(--color-text-secondary);">Due Date: ${billing.dueDateFormatted}</div>
-                        <div class="action-due-amount">${formatCurrency(tenant.rentAmount)}</div>
+                        <div class="action-due-amount">${formatCurrency(billing.amountDue)} ${billing.electricityDue > 0 ? `<span style="font-size:10px; font-weight:600; color:#b45309;">(incl. ₹${billing.electricityDue} elec)</span>` : ''}</div>
                       </div>
                       <div class="action-buttons-group">
+                        <button class="btn-secondary-action open-electricity-btn" data-tenant-id="${tenant.id}" title="Calculate Electricity Sub-Meter Bill" style="padding:6px 8px;">
+                          ⚡ Meter
+                        </button>
                         <button class="btn-secondary-action mark-paid-quick-btn" data-tenant-id="${tenant.id}">
                           Record Pay
                         </button>
@@ -3662,7 +4427,42 @@ self.addEventListener('fetch', (event) => {
               return;
             }
 
-            roomsVisualGrid.innerHTML = roomsToRender.map(({ buildingName, buildingId, floorName, floorId, room, calculatedStatus }) => {
+            let totalActiveBeds = 0;
+            let vacantActiveBeds = 0;
+            activeBuildings.forEach(b => {
+              b.floors.forEach(f => {
+                f.rooms.forEach(r => {
+                  (r.beds || []).forEach(bd => {
+                    totalActiveBeds++;
+                    if (bd.status === 'Vacant') vacantActiveBeds++;
+                  });
+                });
+              });
+            });
+
+            const isFullyOccupied = totalActiveBeds > 0 && vacantActiveBeds === 0;
+            let waitlistBannerHtml = '';
+            if (isFullyOccupied) {
+              const activeWaitlistCount = (appData.waitlist || []).filter(w => w.status === 'Waiting').length;
+              waitlistBannerHtml = `
+                <div class="waitlist-card" style="grid-column: 1 / -1; margin-bottom:12px; background:linear-gradient(135deg, #1e3a8a, #2563eb); color:#ffffff; border-radius:var(--radius-md); padding:14px 16px; display:flex; justify-content:space-between; align-items:center; box-shadow:var(--shadow-elevated);">
+                  <div>
+                    <div style="font-weight:800; font-size:14px; display:flex; align-items:center; gap:6px;">
+                      <span>🔒 Property 100% Full</span>
+                      <span style="font-size:10px; background:rgba(255,255,255,0.25); padding:2px 8px; border-radius:12px; font-weight:700;">Waitlist Active</span>
+                    </div>
+                    <div style="font-size:11px; opacity:0.9; margin-top:2px;">
+                      All beds occupied! Add inquirers to the waitlist to auto-notify them when a bed becomes vacant.
+                    </div>
+                  </div>
+                  <button type="button" class="open-waitlist-btn" style="background:#ffffff; color:#1e40af; border:none; padding:8px 12px; border-radius:var(--radius-sm); font-size:12px; font-weight:800; cursor:pointer; white-space:nowrap; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+                    + Waitlist (${activeWaitlistCount})
+                  </button>
+                </div>
+              `;
+            }
+
+            roomsVisualGrid.innerHTML = waitlistBannerHtml + roomsToRender.map(({ buildingName, buildingId, floorName, floorId, room, calculatedStatus }) => {
               let statusBadgeClass = 'badge-vacant';
               let statusLabel = '🟢 Vacant Beds';
               if (calculatedStatus === 'occupied') {
@@ -3802,6 +4602,7 @@ self.addEventListener('fetch', (event) => {
           tenantsListContainer.innerHTML = list.map(({ tenant, billing, buildingName }) => {
             const isActive = (tenant.status || 'active') === 'active';
             const waUrl = isActive ? generateWhatsAppURL(tenant, billing) : '#';
+            const waReceiptUrl = isActive ? generateReceiptWhatsAppURL(tenant) : '#';
 
             let statusPillHtml = '';
             if (!isActive) {
@@ -3834,7 +4635,10 @@ self.addEventListener('fetch', (event) => {
                 <div class="tenant-details-grid">
                   <div class="tenant-detail-item">
                     <span class="tenant-detail-label">${isActive ? 'Rent / Fee' : 'Past Rent / Fee'}</span>
-                    <span class="tenant-detail-val">${formatCurrency(tenant.rentAmount)} <span style="font-size:10px; color:var(--color-text-secondary); font-weight:600;">(${getPricingCycleLabel(tenant.pricingCycle || 'monthly')})</span></span>
+                    <span class="tenant-detail-val">
+                      ${formatCurrency(tenant.rentAmount)} <span style="font-size:10px; color:var(--color-text-secondary); font-weight:600;">(${getPricingCycleLabel(tenant.pricingCycle || 'monthly')})</span>
+                      ${tenant.electricityDues > 0 ? `<div style="font-size:11px; color:#b45309; font-weight:700; margin-top:2px;">⚡ +₹${tenant.electricityDues.toLocaleString('en-IN')} Elec Due</div>` : ''}
+                    </span>
                   </div>
                   <div class="tenant-detail-item">
                     <span class="tenant-detail-label">Security Deposit</span>
@@ -3862,6 +4666,9 @@ self.addEventListener('fetch', (event) => {
                     </button>
                     ${isActive ? (
                       billing.status !== 'paid' ? `
+                        <button class="btn-secondary-action open-electricity-btn" data-tenant-id="${tenant.id}" title="Calculate Electricity Sub-Meter Bill" style="padding:6px 8px;">
+                          ⚡ Meter
+                        </button>
                         <button class="btn-secondary-action record-pay-btn" data-tenant-id="${tenant.id}">
                           Record Pay
                         </button>
@@ -3870,13 +4677,139 @@ self.addEventListener('fetch', (event) => {
                           <span>WhatsApp</span>
                         </a>
                       ` : `
-                        <span style="font-size:11px; font-weight:700; color:#065f46; padding:6px 8px;">✓ Paid</span>
+                        <button class="btn-secondary-action open-electricity-btn" data-tenant-id="${tenant.id}" title="Calculate Electricity Sub-Meter Bill" style="padding:6px 8px;">
+                          ⚡ Meter
+                        </button>
+                        <a href="${waReceiptUrl}" target="_blank" rel="noopener noreferrer" class="receipt-btn share-receipt-btn" data-tenant-id="${tenant.id}" style="text-decoration:none; display:inline-flex; align-items:center; gap:4px; height:28px; padding:0 10px; font-size:12px; font-weight:700;">
+                          <span>🧾 Share Receipt</span>
+                        </a>
                       `
                     ) : `
                       <button class="btn-secondary-action reallocate-tenant-btn" data-tenant-id="${tenant.id}" style="color:var(--color-brand); font-weight:700;">
                         Re-admit
                       </button>
                     `}
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+
+        // --- COMPLAINTS & MAINTENANCE TAB RENDERING (FEATURE 2) ---
+        function renderComplaintsTab() {
+          const complaintsListContainer = document.getElementById('complaintsListContainer');
+          const navComplaintsBadge = document.getElementById('navComplaintsBadge');
+          if (!complaintsListContainer) return;
+
+          const activeBuildings = getActiveBuildings();
+          const activeBuildingIds = new Set(activeBuildings.map(b => b.id));
+
+          let allComplaints = (appData.complaints || []).filter(c => activeBuildingIds.has(c.buildingId));
+
+          const countAll = allComplaints.length;
+          const countPending = allComplaints.filter(c => c.status === 'Pending').length;
+          const countProgress = allComplaints.filter(c => c.status === 'In Progress').length;
+          const countFixed = allComplaints.filter(c => c.status === 'Fixed').length;
+
+          const cAllEl = document.getElementById('countAllComplaints');
+          const cPendEl = document.getElementById('countPendingComplaints');
+          const cProgEl = document.getElementById('countProgressComplaints');
+          const cFixEl = document.getElementById('countFixedComplaints');
+          if (cAllEl) cAllEl.textContent = countAll;
+          if (cPendEl) cPendEl.textContent = countPending;
+          if (cProgEl) cProgEl.textContent = countProgress;
+          if (cFixEl) cFixEl.textContent = countFixed;
+
+          if (navComplaintsBadge) {
+            navComplaintsBadge.textContent = countPending;
+            navComplaintsBadge.style.display = countPending > 0 ? 'flex' : 'none';
+          }
+
+          let filtered = allComplaints;
+          if (currentComplaintFilter !== 'all') {
+            filtered = filtered.filter(c => c.status === currentComplaintFilter);
+          }
+
+          if (filtered.length === 0) {
+            complaintsListContainer.innerHTML = `
+              <div class="empty-alert-state">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-muted)" stroke-width="2" style="margin:0 auto 8px;">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+                <div style="font-weight:700; color:var(--color-text-primary);">No Maintenance Issues</div>
+                <div style="font-size:12px; color:var(--color-text-secondary); margin-top:2px;">
+                  ${currentComplaintFilter === 'all' ? 'Everything is running smoothly! Tap "+ Log Issue" if a resident reports a problem.' : `No complaints currently in "${currentComplaintFilter}" status.`}
+                </div>
+                <button type="button" class="btn-secondary-action" id="openAddComplaintEmptyBtn" style="margin:12px auto 0; font-weight:700; color:var(--color-brand); border-color:var(--color-brand);">
+                  + Log New Maintenance Issue
+                </button>
+              </div>
+            `;
+            document.getElementById('openAddComplaintEmptyBtn')?.addEventListener('click', () => openAddComplaintModal());
+            return;
+          }
+
+          const categoryIcons = {
+            'Plumbing': '🚰',
+            'WiFi': '📶',
+            'Air Conditioner': '❄️',
+            'Electrical': '💡',
+            'Carpentry': '🚪',
+            'Cleaning': '🧹',
+            'Other': '⚠️'
+          };
+
+          complaintsListContainer.innerHTML = filtered.map(c => {
+            const bldgName = getBuildingName(c.buildingId);
+            const icon = categoryIcons[c.category] || '🛠️';
+            const priorityClass = c.priority === 'High' ? 'priority-badge-high' : (c.priority === 'Medium' ? 'priority-badge-medium' : 'priority-badge-low');
+            const statusClass = c.status === 'Pending' ? 'status-pending' : (c.status === 'In Progress' ? 'status-inprogress' : 'status-fixed');
+
+            const coordMsg = `Hi, regarding maintenance issue #${c.id} (${c.category} - Room ${c.roomNumber} ${c.bedLabel ? '(' + c.bedLabel + ')' : ''}) at ${bldgName}: "${c.description}". Status: ${c.status}.`;
+            const waShareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(coordMsg)}`;
+
+            return `
+              <div class="complaint-card" data-complaint-id="${c.id}">
+                <div class="complaint-card-top">
+                  <div style="display:flex; align-items:flex-start; gap:10px;">
+                    <div class="complaint-category-icon">${icon}</div>
+                    <div>
+                      <div style="display:flex; align-items:center; gap:6px;">
+                        <h4 style="font-size:14px; font-weight:800; color:var(--color-text-primary); margin:0;">${escapeHtml(c.category)}</h4>
+                        <span class="${priorityClass}">${c.priority}</span>
+                      </div>
+                      <div style="font-size:12px; color:var(--color-text-secondary); margin-top:2px;">
+                        <strong>Room ${c.roomNumber}</strong> ${c.bedLabel ? '· ' + c.bedLabel : ''} ${c.tenantName ? '· ' + escapeHtml(c.tenantName) : ''}
+                      </div>
+                      <div style="font-size:11px; color:var(--color-text-muted); margin-top:1px;">
+                        ${bldgName} · Logged ${c.dateLogged || 'Recently'}
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Status Badge Dropdown [Pending, In Progress, Fixed] -->
+                  <select class="complaint-status-select ${statusClass}" data-complaint-id="${c.id}" title="Change Issue Status">
+                    <option value="Pending" ${c.status === 'Pending' ? 'selected' : ''}>🟡 Pending</option>
+                    <option value="In Progress" ${c.status === 'In Progress' ? 'selected' : ''}>🔵 In Progress</option>
+                    <option value="Fixed" ${c.status === 'Fixed' ? 'selected' : ''}>🟢 Fixed</option>
+                  </select>
+                </div>
+
+                <div class="complaint-desc-text">
+                  ${escapeHtml(c.description)}
+                </div>
+
+                <div style="display:flex; align-items:center; justify-content:space-between; padding-top:6px; border-top:1px dashed var(--color-border); font-size:11px;">
+                  <span style="color:var(--color-text-muted);">Status: <strong>${c.status}</strong></span>
+                  <div style="display:flex; align-items:center; gap:6px;">
+                    <a href="${waShareUrl}" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" style="padding:4px 8px; font-size:11px; height:26px;">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
+                      <span>Share Tech</span>
+                    </a>
+                    <button class="delete-complaint-btn" data-complaint-id="${c.id}" style="background:transparent; border:none; color:#ef4444; font-size:11px; cursor:pointer; padding:4px;">
+                      Delete
+                    </button>
                   </div>
                 </div>
               </div>
@@ -4187,6 +5120,21 @@ self.addEventListener('fetch', (event) => {
                   ` : ''}
                 </div>
 
+                ${isActive ? `
+                  <div style="background:#fefce8; border:1px solid #fef08a; padding:10px 12px; border-radius:var(--radius-sm); display:flex; justify-content:space-between; align-items:center;">
+                    <div>
+                      <div style="font-size:11px; font-weight:700; color:#854d0e;">⚡ Electricity Sub-Meter:</div>
+                      <div style="font-size:13px; font-weight:800; color:#a16207; margin-top:1px;">
+                        ${tenant.electricityDues > 0 ? `₹${tenant.electricityDues.toLocaleString('en-IN')} Pending Bill` : 'No Pending Electricity Bill'}
+                      </div>
+                      ${tenant.lastMeterReading != null ? `<div style="font-size:10px; color:#713f12; margin-top:1px;">Last Unit Reading: ${tenant.lastMeterReading}</div>` : ''}
+                    </div>
+                    <button type="button" class="btn-secondary-action open-electricity-btn" data-tenant-id="${tenant.id}" style="height:32px; font-size:11px; background:#ffffff; font-weight:700; color:#15803d; border-color:#bbf7d0;">
+                      ⚡ Calculate Bill
+                    </button>
+                  </div>
+                ` : ''}
+
                 ${tenant.notes ? `
                   <div style="font-size:12px; color:var(--color-text-secondary); background:var(--color-surface-muted); padding:8px 10px; border-radius:var(--radius-sm);">
                     <strong>Notes:</strong> ${escapeHtml(tenant.notes)}
@@ -4253,6 +5201,11 @@ self.addEventListener('fetch', (event) => {
 
           if (footer) {
             footer.innerHTML = isActive ? `
+              ${billing.status === 'paid' ? `
+                <a href="${generateReceiptWhatsAppURL(tenant)}" target="_blank" rel="noopener noreferrer" class="sheet-btn primary" style="background:#16a34a; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:6px;">
+                  <span>🧾 Share Receipt</span>
+                </a>
+              ` : ''}
               <button type="button" class="sheet-btn secondary" id="deleteTenantBtn" data-tenant-id="${tenant.id}" style="color:#b91c1c; border-color:#fecaca;">
                 Checkout Resident
               </button>
@@ -4280,15 +5233,511 @@ self.addEventListener('fetch', (event) => {
           if (modal) modal.classList.remove('open');
         }
 
+        // --- FEATURE 1: ELECTRICITY SUB-METER CONTROLLER ---
+        function openElectricityModal(tenantId) {
+          const modal = document.getElementById('electricityModal');
+          const tenantSelect = document.getElementById('elecTenantSelect');
+          const prevReadingInput = document.getElementById('elecPrevReading');
+          const currReadingInput = document.getElementById('elecCurrReading');
+          const rateInput = document.getElementById('elecRatePerUnit');
+          const calcUnits = document.getElementById('calcUnitsConsumed');
+          const calcTotal = document.getElementById('calcTotalBill');
+          const nameHeader = document.getElementById('elecTenantNameHeader');
+          const roomHeader = document.getElementById('elecTenantRoomHeader');
+
+          if (!modal || !tenantSelect) return;
+
+          const activeTenants = (appData.tenants || []).filter(t => (t.status || 'active') === 'active');
+          if (activeTenants.length === 0) {
+            alert("No active residents found to calculate electricity bill.");
+            return;
+          }
+
+          tenantSelect.innerHTML = activeTenants.map(t => {
+            const bName = getBuildingName(t.buildingId);
+            return `<option value="${t.id}" ${t.id === tenantId ? 'selected' : ''}>${escapeHtml(t.name)} · Room ${t.roomNumber} (${t.bedLabel || 'Bed'}) (${bName})</option>`;
+          }).join('');
+
+          if (tenantId) {
+            tenantSelect.value = tenantId;
+          }
+
+          function syncTenantDisplay() {
+            const selectedId = tenantSelect.value;
+            const t = activeTenants.find(x => x.id === selectedId);
+            if (t) {
+              if (nameHeader) nameHeader.textContent = t.name;
+              if (roomHeader) roomHeader.textContent = `Room ${t.roomNumber} (${t.bedLabel || 'Bed'}) · ${getBuildingName(t.buildingId)}`;
+              if (prevReadingInput) {
+                prevReadingInput.value = (t.lastMeterReading != null && t.lastMeterReading !== '') ? t.lastMeterReading : '0';
+              }
+              if (currReadingInput) {
+                currReadingInput.value = '';
+              }
+              updateLiveCalc();
+            }
+          }
+
+          function updateLiveCalc() {
+            const prev = parseFloat(prevReadingInput?.value || 0);
+            const curr = parseFloat(currReadingInput?.value || 0);
+            const rate = parseFloat(rateInput?.value || 10);
+            const units = Math.max(0, curr - prev);
+            const total = Math.round(units * rate);
+            if (calcUnits) calcUnits.textContent = `${units.toFixed(1)} Units`;
+            if (calcTotal) calcTotal.textContent = `₹${total.toLocaleString('en-IN')}`;
+          }
+
+          tenantSelect.onchange = syncTenantDisplay;
+          if (prevReadingInput) prevReadingInput.oninput = updateLiveCalc;
+          if (currReadingInput) currReadingInput.oninput = updateLiveCalc;
+          if (rateInput) rateInput.oninput = updateLiveCalc;
+
+          syncTenantDisplay();
+          modal.classList.add('open');
+          setTimeout(() => currReadingInput?.focus(), 150);
+        }
+
+        function closeElectricityModal() {
+          const modal = document.getElementById('electricityModal');
+          if (modal) modal.classList.remove('open');
+        }
+
+        function handleAddElectricitySubmit() {
+          const tenantSelect = document.getElementById('elecTenantSelect');
+          const prevReadingInput = document.getElementById('elecPrevReading');
+          const currReadingInput = document.getElementById('elecCurrReading');
+          const rateInput = document.getElementById('elecRatePerUnit');
+
+          const tenantId = tenantSelect?.value;
+          const tenant = appData.tenants.find(t => t.id === tenantId);
+          if (!tenant) {
+            alert('Please select a resident.');
+            return;
+          }
+
+          const prev = parseFloat(prevReadingInput?.value);
+          const curr = parseFloat(currReadingInput?.value);
+          const rate = parseFloat(rateInput?.value);
+
+          if (isNaN(prev) || isNaN(curr)) {
+            alert('Please enter valid numeric readings for Previous and Current meter units.');
+            return;
+          }
+          if (curr < prev) {
+            alert('Current Unit Reading must be greater than or equal to Previous Unit Reading.');
+            return;
+          }
+          if (isNaN(rate) || rate <= 0) {
+            alert('Please specify a valid Rate per Unit (₹).');
+            return;
+          }
+
+          const units = +(curr - prev).toFixed(2);
+          const totalElectricity = Math.round(units * rate);
+
+          // Add this total to the tenant's current monthly pending bill:
+          tenant.electricityDues = (Number(tenant.electricityDues) || 0) + totalElectricity;
+          tenant.lastMeterReading = curr;
+          if (!tenant.meterHistory) tenant.meterHistory = [];
+          tenant.meterHistory.push({
+            date: TODAY.toISOString().split('T')[0],
+            prev,
+            curr,
+            units,
+            rate,
+            amount: totalElectricity
+          });
+
+          saveData();
+          closeElectricityModal();
+          showToast(`⚡ Added ₹${totalElectricity.toLocaleString('en-IN')} (${units} units) to ${tenant.name}'s monthly pending bill!`);
+        }
+
+        // --- FEATURE 2: COMPLAINTS & MAINTENANCE CONTROLLER ---
+        function openAddComplaintModal() {
+          const modal = document.getElementById('addComplaintModal');
+          const bldgSelect = document.getElementById('complaintBuildingSelect');
+          const tenantSelect = document.getElementById('complaintTenantSelect');
+          const descInput = document.getElementById('complaintDescInput');
+          if (!modal) return;
+
+          if (descInput) descInput.value = '';
+
+          if (bldgSelect) {
+            bldgSelect.innerHTML = appData.buildings.map(b => `
+              <option value="${b.id}" ${currentBuildingFilter === b.id ? 'selected' : ''}>🏢 ${b.name}</option>
+            `).join('');
+
+            function syncBuildingTenants() {
+              const bId = bldgSelect.value;
+              const buildingTenants = (appData.tenants || []).filter(t => t.buildingId === bId && (t.status || 'active') === 'active');
+              if (tenantSelect) {
+                tenantSelect.innerHTML = `
+                  <option value="">General Property / Common Area</option>
+                  ${buildingTenants.map(t => `
+                    <option value="${t.id}">Room ${t.roomNumber} (${t.bedLabel || 'Bed'}) · ${escapeHtml(t.name)}</option>
+                  `).join('')}
+                `;
+              }
+            }
+
+            bldgSelect.onchange = syncBuildingTenants;
+            syncBuildingTenants();
+          }
+
+          modal.classList.add('open');
+          setTimeout(() => descInput?.focus(), 150);
+        }
+
+        function closeAddComplaintModal() {
+          const modal = document.getElementById('addComplaintModal');
+          if (modal) modal.classList.remove('open');
+        }
+
+        function handleAddComplaintSubmit() {
+          const bldgSelect = document.getElementById('complaintBuildingSelect');
+          const tenantSelect = document.getElementById('complaintTenantSelect');
+          const categorySelect = document.getElementById('complaintCategorySelect');
+          const prioritySelect = document.getElementById('complaintPrioritySelect');
+          const descInput = document.getElementById('complaintDescInput');
+
+          if (!descInput?.value.trim()) {
+            alert('Please describe the issue.');
+            return;
+          }
+
+          const bldgId = bldgSelect?.value || 'bldg-1';
+          const tenantId = tenantSelect?.value || null;
+          const tenant = tenantId ? appData.tenants.find(t => t.id === tenantId) : null;
+
+          const newComplaint = {
+            id: 'comp-' + Date.now(),
+            buildingId: bldgId,
+            roomNumber: tenant ? tenant.roomNumber : 'Common Area',
+            bedLabel: tenant ? (tenant.bedLabel || '') : '',
+            tenantId: tenant ? tenant.id : null,
+            tenantName: tenant ? tenant.name : '',
+            category: categorySelect ? categorySelect.value : 'General',
+            description: descInput.value.trim(),
+            dateLogged: TODAY.toISOString().split('T')[0],
+            priority: prioritySelect ? prioritySelect.value : 'Medium',
+            status: 'Pending'
+          };
+
+          if (!appData.complaints) appData.complaints = [];
+          appData.complaints.unshift(newComplaint);
+
+          saveData();
+          closeAddComplaintModal();
+          showToast(`Issue #${newComplaint.id.slice(-4)} logged under Complaints.`);
+        }
+
+        // --- FEATURE 3: ONE-CLICK WHATSAPP RECEIPT GENERATOR ---
+        function handleShareReceipt(tenantId) {
+          const tenant = appData.tenants.find(t => t.id === tenantId);
+          if (!tenant) return;
+          const url = generateReceiptWhatsAppURL(tenant);
+          window.open(url, '_blank', 'noopener,noreferrer');
+          showToast(`Generating WhatsApp receipt for ${tenant.name}...`);
+        }
+
+        // --- FEATURE 4: WAITLIST & VACANCY NOTIFIER CONTROLLER ---
+        function openWaitlistModal(preselectedBldgId) {
+          const modal = document.getElementById('waitlistModal');
+          if (!modal) return;
+          renderWaitlistItems();
+          modal.classList.add('open');
+        }
+
+        function closeWaitlistModal() {
+          const modal = document.getElementById('waitlistModal');
+          if (modal) modal.classList.remove('open');
+        }
+
+        function renderWaitlistItems() {
+          const container = document.getElementById('waitlistItemsContainer');
+          if (!container) return;
+
+          const waitlist = appData.waitlist || [];
+          if (waitlist.length === 0) {
+            container.innerHTML = `
+              <div style="text-align:center; padding:16px; color:var(--color-text-muted); font-size:12px; background:var(--color-surface); border:1px dashed var(--color-border); border-radius:var(--radius-sm);">
+                No active waitlist entries. Fill in the form above to add prospective residents when rooms are full.
+              </div>
+            `;
+            return;
+          }
+
+          container.innerHTML = waitlist.map(w => {
+            let cleanPhone = (w.phone || '').replace(/[^0-9]/g, '');
+            if (cleanPhone.length === 10) cleanPhone = '91' + cleanPhone;
+            const bName = getBuildingName(w.preferredBuildingId);
+            const msg = `Hi ${w.name}, greetings from ${appData.config.pgName || 'Hostel & PG Sathi'}! We received your inquiry for a ${w.preferredRoomType || 'bed'} at ${bName}. We will notify you immediately once a bed becomes vacant.`;
+            const waUrl = `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(msg)}`;
+
+            return `
+              <div class="waitlist-entry-card" style="background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-sm); padding:10px 12px; display:flex; flex-direction:column; gap:6px;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                  <div>
+                    <div style="font-weight:700; font-size:13px; color:var(--color-text-primary);">${escapeHtml(w.name)}</div>
+                    <div style="font-size:11px; color:var(--color-text-secondary);">${w.phone} · Added ${w.dateAdded || 'Recently'}</div>
+                  </div>
+                  <span style="font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; background:${w.status === 'Waiting' ? '#fef3c7' : '#ecfdf5'}; color:${w.status === 'Waiting' ? '#92400e' : '#065f46'};">
+                    ${w.status || 'Waiting'}
+                  </span>
+                </div>
+                <div style="font-size:12px; color:var(--color-text-secondary); background:var(--color-surface-muted); padding:6px 8px; border-radius:4px;">
+                  Pref: <strong>${w.preferredRoomType || 'Any Bed'}</strong> · Budget: <strong>₹${Number(w.maxBudget || 0).toLocaleString('en-IN')}</strong>
+                  ${w.notes ? `<div style="font-size:11px; color:var(--color-text-muted); margin-top:2px;">Note: ${escapeHtml(w.notes)}</div>` : ''}
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
+                  <button class="delete-waitlist-btn" data-waitlist-id="${w.id}" style="background:transparent; border:none; color:#dc2626; font-size:11px; cursor:pointer; font-weight:600;">
+                    ✕ Remove
+                  </button>
+                  <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" style="padding:4px 8px; font-size:11px; height:26px;">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+
+        function handleSaveWaitlistEntry() {
+          const nameInput = document.getElementById('waitlistNameInput');
+          const phoneInput = document.getElementById('waitlistPhoneInput');
+          const prefSelect = document.getElementById('waitlistRoomPref');
+          const budgetInput = document.getElementById('waitlistBudgetInput');
+          const notesInput = document.getElementById('waitlistNotesInput');
+
+          if (!nameInput?.value.trim() || !phoneInput?.value.trim()) {
+            alert('Please enter candidate Name and Phone number.');
+            return;
+          }
+
+          const newEntry = {
+            id: 'wait-' + Date.now(),
+            name: nameInput.value.trim(),
+            phone: phoneInput.value.trim(),
+            preferredBuildingId: currentBuildingFilter === 'all' ? (appData.buildings[0]?.id || 'bldg-1') : currentBuildingFilter,
+            preferredRoomType: prefSelect ? prefSelect.value : 'Double Sharing',
+            maxBudget: Number(budgetInput?.value || 0),
+            dateAdded: TODAY.toISOString().split('T')[0],
+            status: 'Waiting',
+            notes: notesInput?.value.trim() || ''
+          };
+
+          if (!appData.waitlist) appData.waitlist = [];
+          appData.waitlist.unshift(newEntry);
+
+          nameInput.value = '';
+          phoneInput.value = '';
+          if (budgetInput) budgetInput.value = '';
+          if (notesInput) notesInput.value = '';
+
+          saveData();
+          renderWaitlistItems();
+          showToast(`Added ${newEntry.name} to waitlist!`);
+        }
+
+        function openVacantNotifyModal(room, bed) {
+          const modal = document.getElementById('vacantNotifyModal');
+          const roomText = document.getElementById('vacantRoomDetailText');
+          const matchList = document.getElementById('vacantMatchListContainer');
+          if (!modal) return;
+
+          const bldgName = getBuildingName(room.buildingId || currentBuildingFilter);
+          if (roomText) {
+            roomText.textContent = `Room ${room.number} · ${room.type || 'Shared Room'} (${bed ? bed.label : 'Bed'}) is now vacant at ${bldgName}.`;
+          }
+
+          const waitingCandidates = (appData.waitlist || []).filter(w => w.status === 'Waiting');
+          if (matchList) {
+            if (waitingCandidates.length === 0) {
+              matchList.innerHTML = `
+                <div style="font-size:12px; color:var(--color-text-muted); text-align:center; padding:12px;">
+                  No candidates currently waiting on the waitlist.
+                </div>
+              `;
+            } else {
+              matchList.innerHTML = waitingCandidates.map(w => {
+                let cleanPhone = (w.phone || '').replace(/[^0-9]/g, '');
+                if (cleanPhone.length === 10) cleanPhone = '91' + cleanPhone;
+                const notifyMsg = `Hi ${w.name}, great news from ${appData.config.pgName || 'Hostel & PG Sathi'}! A bed has just become VACANT in Room ${room.number} (${room.type || 'Room'}) at ${bldgName}. Rent is ₹${(room.rentDefault || 0).toLocaleString('en-IN')}/bed. Would you like to reserve this bed before it is allocated? Please let us know!`;
+                const waUrl = `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(notifyMsg)}`;
+
+                return `
+                  <div style="background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-sm); padding:10px 12px; display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                    <div>
+                      <div style="font-weight:700; font-size:13px; color:var(--color-text-primary);">${escapeHtml(w.name)}</div>
+                      <div style="font-size:11px; color:var(--color-text-secondary); margin-top:2px;">
+                        Looking for: <strong>${w.preferredRoomType || 'Any'}</strong> · Budget: ₹${(w.maxBudget || 0).toLocaleString('en-IN')}
+                      </div>
+                      <div style="font-size:10px; color:var(--color-text-muted);">${w.phone}</div>
+                    </div>
+                    <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" style="padding:6px 10px; font-size:11px; white-space:nowrap; height:30px;">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
+                      <span>Notify</span>
+                    </a>
+                  </div>
+                `;
+              }).join('');
+            }
+          }
+
+          modal.classList.add('open');
+        }
+
+        function closeVacantNotifyModal() {
+          const modal = document.getElementById('vacantNotifyModal');
+          if (modal) modal.classList.remove('open');
+        }
+
+        // --- FEATURE 6: BULK WHATSAPP REMINDERS CONTROLLER ---
+        function openBulkRemindersModal() {
+          const modal = document.getElementById('bulkRemindersModal');
+          const container = document.getElementById('bulkRemindersListContainer');
+          const summaryText = document.getElementById('bulkRemindersSummaryText');
+          if (!modal || !container) return;
+
+          const activeBuildings = getActiveBuildings();
+          const activeBuildingIds = new Set(activeBuildings.map(b => b.id));
+
+          const alertTenants = [];
+          appData.tenants.forEach(tenant => {
+            if ((tenant.status || 'active') !== 'active') return;
+            if (!activeBuildingIds.has(tenant.buildingId)) return;
+            const billing = getTenantBillingInfo(tenant);
+            if (billing.isAlertEligible) {
+              alertTenants.push({
+                tenant,
+                billing,
+                buildingName: getBuildingName(tenant.buildingId)
+              });
+            }
+          });
+
+          if (summaryText) {
+            const totalPendingAmt = alertTenants.reduce((sum, item) => sum + item.billing.amountDue, 0);
+            summaryText.textContent = `${alertTenants.length} resident${alertTenants.length === 1 ? '' : 's'} with pending rent found · Total Pending: ${formatCurrency(totalPendingAmt)}`;
+          }
+
+          if (alertTenants.length === 0) {
+            container.innerHTML = `
+              <div style="text-align:center; padding:24px 12px; color:var(--color-text-secondary); font-size:13px;">
+                <div style="font-size:24px; margin-bottom:6px;">🎉</div>
+                <strong>All Rent Reminders Clear!</strong>
+                <p style="font-size:12px; color:var(--color-text-muted); margin-top:4px;">No residents currently have pending or overdue dues in this view.</p>
+              </div>
+            `;
+          } else {
+            container.innerHTML = alertTenants.map(({ tenant, billing, buildingName }, idx) => {
+              const waUrl = generateWhatsAppURL(tenant, billing);
+              return `
+                <div style="background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-sm); padding:10px 12px; display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                  <div>
+                    <div style="font-weight:700; font-size:13px; color:var(--color-text-primary); display:flex; align-items:center; gap:6px;">
+                      <span>${idx + 1}. ${escapeHtml(tenant.name)}</span>
+                      <span class="action-building-tag">${escapeHtml(buildingName)}</span>
+                    </div>
+                    <div style="font-size:11px; color:var(--color-text-secondary); margin-top:2px;">
+                      Room ${tenant.roomNumber} (${tenant.bedLabel}) · <strong>${formatCurrency(billing.amountDue)}</strong>
+                      <span style="color:${billing.status === 'overdue' ? '#dc2626' : '#d97706'}; font-weight:600;"> · ${billing.statusText}</span>
+                    </div>
+                  </div>
+                  <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="whatsapp-btn bulk-item-wa-btn" data-wa-url="${encodeURIComponent(waUrl)}" style="padding:6px 10px; font-size:12px; white-space:nowrap; height:32px;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
+                    <span>Notify</span>
+                  </a>
+                </div>
+              `;
+            }).join('');
+          }
+
+          modal.classList.add('open');
+        }
+
+        function closeBulkRemindersModal() {
+          const modal = document.getElementById('bulkRemindersModal');
+          if (modal) modal.classList.remove('open');
+        }
+
+        function handleCopyAllReminders() {
+          const activeBuildings = getActiveBuildings();
+          const activeBuildingIds = new Set(activeBuildings.map(b => b.id));
+
+          const msgs = [];
+          appData.tenants.forEach(tenant => {
+            if ((tenant.status || 'active') !== 'active') return;
+            if (!activeBuildingIds.has(tenant.buildingId)) return;
+            const billing = getTenantBillingInfo(tenant);
+            if (billing.isAlertEligible) {
+              const bldgName = getBuildingName(tenant.buildingId);
+              const roomBed = `Room ${tenant.roomNumber} (${tenant.bedLabel || 'Bed'})`;
+              const msg = `To: ${tenant.name} (${tenant.phone})\nProperty: ${bldgName} - ${roomBed}\nAmount Due: ₹${billing.amountDue.toLocaleString('en-IN')}\nDue Date: ${billing.dueDateFormatted} (${billing.statusText})\nUPI: ${appData.config.upiId || 'Direct UPI'}\n`;
+              msgs.push(msg);
+            }
+          });
+
+          if (msgs.length === 0) {
+            showToast("No pending reminders to copy.");
+            return;
+          }
+
+          const fullText = "=== PENDING RENT REMINDERS ===\n\n" + msgs.join("\n--------------------\n\n");
+          navigator.clipboard.writeText(fullText).then(() => {
+            showToast(`📋 Copied ${msgs.length} WhatsApp reminders to clipboard!`);
+          }).catch(() => {
+            showToast("Clipboard access denied. Please allow permissions.");
+          });
+        }
+
+        function handleLaunchBulkSequential() {
+          const activeBuildings = getActiveBuildings();
+          const activeBuildingIds = new Set(activeBuildings.map(b => b.id));
+
+          const alertTenants = [];
+          appData.tenants.forEach(tenant => {
+            if ((tenant.status || 'active') !== 'active') return;
+            if (!activeBuildingIds.has(tenant.buildingId)) return;
+            const billing = getTenantBillingInfo(tenant);
+            if (billing.isAlertEligible) {
+              alertTenants.push({
+                tenant,
+                billing,
+                url: generateWhatsAppURL(tenant, billing)
+              });
+            }
+          });
+
+          if (alertTenants.length === 0) {
+            showToast("No pending reminders to send.");
+            return;
+          }
+
+          // Open the first reminder directly and notify user
+          const first = alertTenants[0];
+          window.open(first.url, '_blank', 'noopener,noreferrer');
+          showToast(`🚀 Dispatched WhatsApp reminder 1 of ${alertTenants.length} (${first.tenant.name})`);
+        }
+
         // 5. EVENT BINDINGS & LISTENERS
-        document.addEventListener('DOMContentLoaded', function() {
+        function initApp() {
           loadData();
           setupNavigation();
           setupEventListeners();
           setupDeviceSimulation();
           setupPwaInstall();
           refreshUI();
-        });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+          initApp();
+        }
 
         function setupNavigation() {
           const navItems = document.querySelectorAll('.nav-tab-item');
@@ -4306,6 +5755,11 @@ self.addEventListener('fetch', (event) => {
 
               const targetView = document.getElementById(targetId);
               if (targetView) targetView.classList.add('active');
+
+              if (targetId === 'tab-complaints') renderComplaintsTab();
+              if (targetId === 'tab-tenants') renderTenantsTab();
+              if (targetId === 'tab-rooms') renderRoomsTab();
+              if (targetId === 'tab-dashboard') renderDashboard();
 
               const viewport = document.getElementById('appViewport');
               if (viewport) viewport.scrollTop = 0;
@@ -4491,6 +5945,58 @@ self.addEventListener('fetch', (event) => {
           document.getElementById('closeTdModalBtn')?.addEventListener('click', closeTenantProfileModal);
           document.getElementById('openAddRoomModalBtn')?.addEventListener('click', openAddRoomModal);
 
+          // Electricity Modal Triggers
+          document.getElementById('closeElectricityModalBtn')?.addEventListener('click', closeElectricityModal);
+          document.getElementById('cancelElecBtn')?.addEventListener('click', closeElectricityModal);
+          document.getElementById('confirmAddElectricityBtn')?.addEventListener('click', handleAddElectricitySubmit);
+          document.getElementById('openElectricityCalculatorHeaderBtn')?.addEventListener('click', () => openElectricityModal());
+
+          // Complaints Modal Triggers & Status Filter
+          document.getElementById('openAddComplaintModalBtn')?.addEventListener('click', openAddComplaintModal);
+          document.getElementById('closeAddComplaintModalBtn')?.addEventListener('click', closeAddComplaintModal);
+          document.getElementById('cancelComplaintBtn')?.addEventListener('click', closeAddComplaintModal);
+          document.getElementById('confirmAddComplaintBtn')?.addEventListener('click', handleAddComplaintSubmit);
+
+          const complaintsFilterBar = document.getElementById('complaintsFilterBar');
+          if (complaintsFilterBar) {
+            complaintsFilterBar.addEventListener('click', (e) => {
+              const btn = e.target.closest('.segmented-tab');
+              if (!btn) return;
+              complaintsFilterBar.querySelectorAll('.segmented-tab').forEach(t => t.classList.remove('active'));
+              btn.classList.add('active');
+              currentComplaintFilter = btn.dataset.complaintFilter || 'all';
+              renderComplaintsTab();
+            });
+          }
+
+          // Complaint Status Change listener
+          document.addEventListener('change', (e) => {
+            const statusSelect = e.target.closest('.complaint-status-select');
+            if (statusSelect) {
+              const cid = statusSelect.dataset.complaintId;
+              const complaint = (appData.complaints || []).find(c => c.id === cid);
+              if (complaint) {
+                complaint.status = statusSelect.value;
+                saveData();
+                showToast(`Issue status changed to ${complaint.status}`);
+              }
+            }
+          });
+
+          // Bulk Reminders Modal Triggers
+          document.getElementById('bulkReminderBtn')?.addEventListener('click', openBulkRemindersModal);
+          document.getElementById('closeBulkRemindersBtn')?.addEventListener('click', closeBulkRemindersModal);
+          document.getElementById('copyAllRemindersBtn')?.addEventListener('click', handleCopyAllReminders);
+          document.getElementById('launchBulkSequentialBtn')?.addEventListener('click', handleLaunchBulkSequential);
+
+          // Waitlist & Vacancy Modal Triggers
+          document.getElementById('openWaitlistModalBtn')?.addEventListener('click', () => openWaitlistModal());
+          document.getElementById('closeWaitlistModalBtn')?.addEventListener('click', closeWaitlistModal);
+          document.getElementById('closeWaitlistDoneBtn')?.addEventListener('click', closeWaitlistModal);
+          document.getElementById('saveWaitlistEntryBtn')?.addEventListener('click', handleSaveWaitlistEntry);
+          document.getElementById('closeVacantNotifyModalBtn')?.addEventListener('click', closeVacantNotifyModal);
+          document.getElementById('dismissVacantAlertBtn')?.addEventListener('click', closeVacantNotifyModal);
+
           // Delegate Click on Bed Slot in Room View
           const roomsGrid = document.getElementById('roomsVisualGrid');
           if (roomsGrid) {
@@ -4529,6 +6035,49 @@ self.addEventListener('fetch', (event) => {
             if (profileBtn) {
               const tid = profileBtn.dataset.tenantId;
               if (tid) openTenantProfileModal(tid);
+              return;
+            }
+
+            const elecBtn = e.target.closest('.open-electricity-btn');
+            if (elecBtn) {
+              const tid = elecBtn.dataset.tenantId;
+              openElectricityModal(tid);
+              return;
+            }
+
+            const receiptBtn = e.target.closest('.share-receipt-btn');
+            if (receiptBtn) {
+              const tid = receiptBtn.dataset.tenantId;
+              if (tid) handleShareReceipt(tid);
+              return;
+            }
+
+            const delCompBtn = e.target.closest('.delete-complaint-btn');
+            if (delCompBtn) {
+              const cid = delCompBtn.dataset.complaintId;
+              if (cid && confirm("Delete this maintenance issue log?")) {
+                appData.complaints = (appData.complaints || []).filter(c => c.id !== cid);
+                saveData();
+                showToast("Complaint removed.");
+              }
+              return;
+            }
+
+            const delWaitBtn = e.target.closest('.delete-waitlist-btn');
+            if (delWaitBtn) {
+              const wid = delWaitBtn.dataset.waitlistId;
+              if (wid && confirm("Remove candidate from waitlist?")) {
+                appData.waitlist = (appData.waitlist || []).filter(w => w.id !== wid);
+                saveData();
+                renderWaitlistItems();
+                showToast("Candidate removed from waitlist.");
+              }
+              return;
+            }
+
+            const openWaitBtn = e.target.closest('.open-waitlist-btn');
+            if (openWaitBtn) {
+              openWaitlistModal();
               return;
             }
 
@@ -4761,6 +6310,17 @@ self.addEventListener('fetch', (event) => {
 
           tenant.lastPaidMonth = CURRENT_YEAR_MONTH;
 
+          // Clear or deduct electricity dues if paid
+          if (tenant.electricityDues > 0) {
+            if (amt >= (Number(tenant.rentAmount || 0) + Number(tenant.electricityDues || 0))) {
+              tenant.electricityDues = 0;
+            } else if (amt >= Number(tenant.electricityDues || 0)) {
+              tenant.electricityDues = 0;
+            } else {
+              tenant.electricityDues = Math.max(0, Number(tenant.electricityDues || 0) - amt);
+            }
+          }
+
           saveData();
           closeRecordPaymentModal();
           showToast(`Rent payment of ₹${amt.toLocaleString('en-IN')} recorded for ${tenant.name}!`);
@@ -4820,6 +6380,9 @@ self.addEventListener('fetch', (event) => {
           const tenant = appData.tenants.find(t => t.id === tenantId);
           if (!tenant) return;
 
+          let vacatedRoom = null;
+          let vacatedBed = null;
+
           appData.buildings.forEach(bldg => {
             bldg.floors.forEach(floor => {
               floor.rooms.forEach(room => {
@@ -4830,6 +6393,8 @@ self.addEventListener('fetch', (event) => {
                     if (room.status !== 'Maintenance') {
                       room.status = 'Available';
                     }
+                    vacatedRoom = { ...room, buildingId: bldg.id };
+                    vacatedBed = { ...bed };
                   }
                 });
               });
@@ -4842,6 +6407,16 @@ self.addEventListener('fetch', (event) => {
           tenant.bedId = null;
           saveData();
           showToast(`Tenant ${tenant.name} checked out. Bed is now marked Vacant.`);
+
+          // FEATURE 4: Trigger waitlist notification when bed becomes vacant
+          if (vacatedRoom && vacatedBed) {
+            const waitingCandidates = (appData.waitlist || []).filter(w => w.status === 'Waiting');
+            if (waitingCandidates.length > 0) {
+              setTimeout(() => {
+                openVacantNotifyModal(vacatedRoom, vacatedBed);
+              }, 400);
+            }
+          }
         }
 
         function deleteTenantPermanently(tenantId) {
